@@ -1,5 +1,5 @@
 profile: mirust.workspace.v1
-updated_utc: 2026-07-01T13:15:00Z
+updated_utc: 2026-07-01T20:46:46Z
 site: MiRust.com
 workspace_root: E:\Source\Rust\MiRust.com
 coordinator: E:\Source\Rust\workspace.uai
@@ -12,6 +12,11 @@ public_access_policy:
   .uai: denied
   agent-file-handoff: denied
   workspace.uai: do_not_publish_without_root_deny_or_auth
+deploy_gate:
+  instruction: Before deploying MiRust.com or client-site talisman changes, update this talisman source and any affected client documentation sites so public-safe exports and live docs match the source being deployed.
+  requirements:
+    - Keep Runtime.MiRust.com, TinyRustLM.MiRust.com, SLMComposer.com, and MiniModel.org documentation aligned before deployment.
+    - Run relevant pointer audits and git diff --check before packaging or deployment.
 required_private_read_order:
   - workspace.uai
   - .uai/index.uai
