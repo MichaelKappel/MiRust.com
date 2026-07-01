@@ -1,0 +1,27 @@
+profile: mirust.talisman-source.talisman.v1
+updated_utc: 2026-07-01T03:10:00Z
+site: MiRust.com
+role: talisman_source_anchor
+uaix_guidance: https://uaix.org/en-us/ai-memory/talisman-system/
+protected_anchors:
+  - path: .uai/totem.uai
+    role: positive_anchor
+    agent_mutability: read_only
+    change_authority: exact_human_artifact_and_operation_required
+  - path: .uai/taboo.uai
+    role: negative_anchor
+    agent_mutability: read_only
+    change_authority: exact_human_artifact_and_operation_required
+  - path: .uai/talisman.uai
+    role: governance_anchor
+    agent_mutability: read_only
+    change_authority: exact_human_artifact_and_operation_required
+agent_rules:
+  - When an anchor blocks action, no-op and produce a talk-back change request instead of mutating the anchor.
+  - Client sites may reference this talisman source one-way for posture and interpretation.
+  - Runtime controls, repository protections, FTP permissions, CI, and review gates remain locally owned.
+talk_back:
+  allowed: true
+  target_path: .uai/talisman-change-requests/
+  approval_default: false
+boundary: This file is active instruction memory, not runtime enforcement or certification.

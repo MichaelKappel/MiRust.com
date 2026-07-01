@@ -1,0 +1,22 @@
+profile: mirust.uai.index.v2
+updated_utc: 2026-07-01T13:15:00Z
+site: MiRust.com
+role: talisman_source
+workspace_coordinator: workspace.uai
+required_read_order:
+  - workspace.uai
+  - .uai/totem.uai
+  - .uai/taboo.uai
+  - .uai/talisman.uai
+  - .uai/file-handoff.uai
+  - .uai/intake-outcome-ledger.uai
+  - .uai/short-term-memory.uai
+source_guidance:
+  talisman_system: https://uaix.org/en-us/ai-memory/talisman-system/
+  file_handoff_setup: https://uaix.org/en-us/tools/ai-memory-package-wizard/#setup-file-handoff
+client_sites:
+  - Runtime.MiRust.com
+  - TinyRustLM.MiRust.com
+  - SLMComposer.com
+  - MiniModel.org
+boundary: MiRust.com is the Rust-family talisman source. Client references are one-way; no reciprocal sync, certification, endpoint authority, or automatic mutation is implied. Public agents should use .well-known/uaix-talisman.txt; private agents with trusted access should use workspace.uai and .uai.

@@ -1,0 +1,1 @@
+Extract this ZIP at the MiRust.com document root on staging. Merge carefully with any existing robots.txt, security.txt, verification files, or custom .well-known records. These files describe public MiRust routes and public subdomain lanes only. They grant no execution, model, write, scraping-exception, certification, private UAI, or implementation-source authority.

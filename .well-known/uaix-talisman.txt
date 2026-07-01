@@ -1,0 +1,28 @@
+UAIX Talisman Public Export
+site: MiRust.com
+role: talisman-source
+updated_utc: 2026-07-01T13:10:00Z
+
+Purpose
+MiRust.com is the public talisman source for this Rust-family site cluster. This file is a public orientation export only. It is not the private .uai memory package.
+
+Public Anchors
+- Rust-first engineering.
+- Local-first and browser-local model execution boundaries.
+- Checksum-bearing provenance for model packages, reports, and durable evidence.
+- Client sites reference MiRust.com one-way for posture, not approval or certification.
+
+Client Sites
+- Runtime.MiRust.com
+- TinyRustLM.MiRust.com
+- SLMComposer.com
+- MiniModel.org
+
+Private Memory Boundary
+The .uai directory is internal operational memory and should not be crawled or served as public documentation. Agents with filesystem or FTP authority may read local .uai files according to project instructions.
+
+File Handoff Boundary
+agent-file-handoff is an operational intake path, not a public content API. Processed intake must be reviewed, dispositioned, recorded, and cleared.
+
+Public Export Strategy
+Public agents should read this .txt export. Private agents should read the local .uai package from trusted workspace or authenticated operations channels.

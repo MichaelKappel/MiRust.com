@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Sitemap: https://mirust.com/mirust-public-sitemap.xml
+
+# Root files are discovery aids. They do not grant model execution, write access, private memory access, or scraping exceptions.

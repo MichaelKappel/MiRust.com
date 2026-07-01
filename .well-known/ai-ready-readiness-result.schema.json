@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "site",
+    "version",
+    "status"
+  ],
+  "properties": {
+    "site": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

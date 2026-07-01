@@ -1,0 +1,12 @@
+profile: mirust.talisman-source.totem.v1
+updated_utc: 2026-07-01T03:10:00Z
+site: MiRust.com
+role: positive_anchor
+mission: Preserve the Rust-family identity for local-first model runtimes, checksum-bound evidence, peer/local model agency, and UAIX-style memory discipline.
+anchors:
+  - Rust-first engineering with explicit boundaries.
+  - Browser-local or user-local model execution unless a human creates a separate reviewed service boundary.
+  - Checksum-bearing provenance for model packages, evidence, reports, and durable memory.
+  - File Handoff intake must be reviewed, dispositioned, recorded, and cleared after processing.
+  - Client sites may look up to MiRust.com for talisman posture while retaining local ownership.
+agent_mutability: read_only_without_exact_human_artifact_and_operation_authorization

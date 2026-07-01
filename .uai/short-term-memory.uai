@@ -1,0 +1,6 @@
+profile: mirust.short-term-memory.v1
+updated_utc: 2026-07-01T03:10:00Z
+current_state:
+  - MiRust.com is the talisman source for the Rust-family sites: Runtime.MiRust.com, TinyRustLM.MiRust.com, SLMComposer.com, and MiniModel.org.
+  - File Handoff setup is initialized with Content and Improvement buckets, disposition ledger, and placeholder-only active intake.
+  - Client sites reference MiRust.com one-way; local site ownership, deployment, review, and runtime controls remain local.

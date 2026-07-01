@@ -1,0 +1,21 @@
+{
+  "site": "https://mirust.com",
+  "version": "2.3.0",
+  "updated_utc": "2026-06-30T00:00:00Z",
+  "status": "staging-required",
+  "passed_static_checks": [
+    "root files generated",
+    "route inventory uses target-site routes",
+    "subdomain coordinator routes added",
+    "no executable runtime artifacts in root files"
+  ],
+  "deferred_checks": [
+    "live WordPress import",
+    "menu verification",
+    "axe/Lighthouse",
+    "browser matrix",
+    "field performance",
+    "GGUF-side implementation validation",
+    "subdomain link checks on production DNS after cache purge"
+  ]
+}

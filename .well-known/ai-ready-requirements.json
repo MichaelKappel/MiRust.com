@@ -1,0 +1,11 @@
+{
+  "site": "https://mirust.com",
+  "version": "2.3.0",
+  "requirements": [
+    "Human-visible evidence before machine-readable claim",
+    "Structured data must match visible content",
+    "Unsupported agent actions must no-op or route to human review",
+    "Runtime claims require implementation-lane evidence",
+    "Subdomain claims require public route, role, observation date, and boundary note"
+  ]
+}

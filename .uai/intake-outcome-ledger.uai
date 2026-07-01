@@ -1,0 +1,13 @@
+profile: mirust.intake-outcome-ledger.v1
+updated_utc: 2026-07-01T03:10:00Z
+site: MiRust.com
+latest_scan:
+  content_non_placeholder_files: 0
+  improvement_non_placeholder_files: 0
+  outcome: placeholder_only
+records:
+  - id: initial_file_handoff_setup_2026_07_01
+    disposition: setup_complete
+    source_impact: Created local Agent File Handoff buckets and active instruction pointers.
+    memory_impact: File Handoff evidence route initialized for future intake.
+    active_intake_after: placeholder_only
