@@ -1,23 +1,23 @@
 {
   "site": "https://mirust.com",
-  "version": "2.3.0",
-  "updated_utc": "2026-06-30T00:00:00Z",
+  "version": "2.4.0",
+  "updated_utc": "2026-07-02T00:12:07Z",
   "project_constellation": {
     "route": "https://mirust.com/project-constellation/",
     "subdomains": [
       {
         "name": "TinyRustLM.MiRust.com",
         "url": "https://tinyrustlm.mirust.com/",
-        "role": "Implementation-facing TinyRustLM runtime site",
-        "observedUtc": "2026-06-30T00:00:00Z",
-        "observedStatus": "Plain PHP project site; package 1.3.0 observed; browser-local Rust/WASM SLM runtime documentation; no authority granted by MiRust root files"
+        "role": "TinyRustLM developer portal and absorbed legacy runtime documentation archive",
+        "observedUtc": "2026-07-02T00:12:07Z",
+        "observedStatus": "Plain PHP developer portal; legacy runtime documentation corpus preserved under /docs/runtime-portal/; browser-local Rust/WASM SLM runtime documentation; no authority granted by MiRust root files"
       },
       {
-        "name": "Runtime.MiRust.com",
-        "url": "https://runtime.mirust.com/",
-        "role": "Runtime implementation evidence and trust-check site",
-        "observedUtc": "2026-06-30T00:00:00Z",
-        "observedStatus": "Plain PHP runtime project site; v1.0.5 observed; documents actual TinyRustLM runtime lanes, proof routes, memory, and product boundaries"
+        "name": "TinyRustLM.com",
+        "url": "https://tinyrustlm.com/",
+        "role": "Root-domain browser-local Rust/WASM app",
+        "observedUtc": "2026-07-02T00:12:07Z",
+        "observedStatus": "Static browser-local app; users import local .slm files; project servers do not run or serve runnable model bytes"
       },
       {
         "name": "GGUF.MiRust.com",
@@ -25,6 +25,13 @@
         "role": "GGUF-facing implementation identity and future native GGUF parser evidence lane",
         "observedUtc": "2026-06-30T00:00:00Z",
         "observedStatus": "Owner-identified boundary; verify public route and evidence before promoting native GGUF parser claims"
+      }
+    ],
+    "retired": [
+      {
+        "name": "SLMComposer.com",
+        "replacement": "https://tinyrustlm.com/",
+        "status": "no longer the canonical public app identity"
       }
     ]
   },

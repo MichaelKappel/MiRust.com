@@ -3,33 +3,36 @@
 MiRust is the project-guide, evidence surface, and subdomain coordinator for Machine Intelligence for Rust-oriented systems.
 
 Current key pages:
-- https://mirust.com/ — Home: Project overview and primary navigation
-- https://mirust.com/project-constellation/ — Project Constellation: Coordinator map for MiRust.com, TinyRustLM.MiRust.com, Runtime.MiRust.com, GGUF.MiRust.com, claim ownership, and no-op boundaries
-- https://mirust.com/implementation/ — Implementation: Actual TinyRustLM implementation evidence and limits
-- https://mirust.com/zero-dependency-runtime-improvements/ — Zero-Dependency Runtime Improvements: WASM SIMD, quantization, parser, memory and adapter hardening roadmap
-- https://mirust.com/k-quant-and-simd-roadmap/ — K-Quant and SIMD Roadmap: Hierarchical quantization and SIMD evidence requirements
-- https://mirust.com/adapter-breeding-strategy/ — Adapter Breeding Strategy: LoRA-first and adapter-first Model Breeding strategy
-- https://mirust.com/modelbreeder-gap-analysis/ — ModelBreeder Gap Analysis: Theory versus implementation comparison and roadmap gaps
-- https://mirust.com/on-device-rust-llm-ecology/ — On-device Rust LLM Ecology: Tiny local model ecology, routers, judges, and no-op controls
-- https://mirust.com/evolutionary-reference-guardrails/ — Evolutionary Reference Guardrails: Mutualist governance and red-team exclusions
-- https://mirust.com/model-breeding-implementation-blueprint/ — Model Breeding Implementation Blueprint: Governed implementation roadmap for registry-first Model Breeding
-- https://mirust.com/model-breeding-methods-reference/ — Model Breeding Methods Reference: Model merging, LoRA, distillation, ensembles, and no-op decision boundaries
-- https://mirust.com/governed-genomes-and-fitness/ — Governed Genomes and Fitness Vectors: Genome and FitnessVector records for candidate evaluation
-- https://mirust.com/modelbreeder-comparison/ — ModelBreeder Comparison: Comparison to external ModelBreeder terminology and source realities
-- https://mirust.com/model-breeding/ — Model Breeding: Governed model-evolution research discipline
-- https://mirust.com/code-beading/ — Code Beading: SIP records, durable memory, source intake, and handoff state
-- https://mirust.com/tiny-model-ecology/ — Tiny Model Ecology: Small model population and routing design
-- https://mirust.com/site-evidence/ — Site Evidence: Public evidence map for MiRust claims
-- https://mirust.com/answer-catalog/ — Answer Catalog: Direct answers for citable MiRust claims
-- https://mirust.com/source-grounding/ — Source Grounding: Visible evidence trails for generated summaries
-- https://mirust.com/search-discovery/ — Search Discovery: Titles, canonicals, structured data, and crawl basics
-- https://mirust.com/machine-readable-discovery/ — Machine-Readable Discovery: Root manifests and advisory discovery files
-- https://mirust.com/agent-support-boundary/ — Agent Support Boundary: Public-agent read/cite/no-op boundary
+- https://mirust.com/ - Home: Project overview and primary navigation
+- https://mirust.com/project-constellation/ - Project Constellation: Coordinator map for MiRust.com, TinyRustLM.MiRust.com, TinyRustLM.com, GGUF.MiRust.com, claim ownership, and no-op boundaries
+- https://mirust.com/implementation/ - Implementation: Actual TinyRustLM implementation evidence and limits
+- https://mirust.com/zero-dependency-runtime-improvements/ - Zero-Dependency Runtime Improvements: WASM SIMD, quantization, parser, memory and adapter hardening roadmap
+- https://mirust.com/k-quant-and-simd-roadmap/ - K-Quant and SIMD Roadmap: Hierarchical quantization and SIMD evidence requirements
+- https://mirust.com/adapter-breeding-strategy/ - Adapter Breeding Strategy: LoRA-first and adapter-first Model Breeding strategy
+- https://mirust.com/modelbreeder-gap-analysis/ - ModelBreeder Gap Analysis: Theory versus implementation comparison and roadmap gaps
+- https://mirust.com/on-device-rust-llm-ecology/ - On-device Rust LLM Ecology: Tiny local model ecology, routers, judges, and no-op controls
+- https://mirust.com/evolutionary-reference-guardrails/ - Evolutionary Reference Guardrails: Mutualist governance and red-team exclusions
+- https://mirust.com/model-breeding-implementation-blueprint/ - Model Breeding Implementation Blueprint: Governed implementation roadmap for registry-first Model Breeding
+- https://mirust.com/model-breeding-methods-reference/ - Model Breeding Methods Reference: Model merging, LoRA, distillation, ensembles, and no-op decision boundaries
+- https://mirust.com/governed-genomes-and-fitness/ - Governed Genomes and Fitness Vectors: Genome and FitnessVector records for candidate evaluation
+- https://mirust.com/modelbreeder-comparison/ - ModelBreeder Comparison: Comparison to external ModelBreeder terminology and source realities
+- https://mirust.com/model-breeding/ - Model Breeding: Governed model-evolution research discipline
+- https://mirust.com/code-beading/ - Code Beading: SIP records, durable memory, source intake, and handoff state
+- https://mirust.com/tiny-model-ecology/ - Tiny Model Ecology: Small model population and routing design
+- https://mirust.com/site-evidence/ - Site Evidence: Public evidence map for MiRust claims
+- https://mirust.com/answer-catalog/ - Answer Catalog: Direct answers for citable MiRust claims
+- https://mirust.com/source-grounding/ - Source Grounding: Visible evidence trails for generated summaries
+- https://mirust.com/search-discovery/ - Search Discovery: Titles, canonicals, structured data, and crawl basics
+- https://mirust.com/machine-readable-discovery/ - Machine-Readable Discovery: Root manifests and advisory discovery files
+- https://mirust.com/agent-support-boundary/ - Agent Support Boundary: Public-agent read/cite/no-op boundary
 
 Subdomain constellation:
-- https://tinyrustlm.mirust.com/ — TinyRustLM.MiRust.com: Implementation-facing TinyRustLM runtime site.
-- https://runtime.mirust.com/ — Runtime.MiRust.com: Runtime implementation evidence and trust-check site.
-- https://gguf.mirust.com/ — GGUF.MiRust.com: GGUF-facing implementation identity and future native GGUF parser evidence lane.
+- https://tinyrustlm.mirust.com/ - TinyRustLM.MiRust.com: TinyRustLM developer portal with the absorbed legacy runtime documentation archive.
+- https://tinyrustlm.com/ - TinyRustLM.com: Root-domain browser-local Rust/WASM app.
+- https://gguf.mirust.com/ - GGUF.MiRust.com: GGUF-facing implementation identity and future native GGUF parser evidence lane.
+
+Retired routes:
+- SLMComposer.com is no longer the canonical public app identity; use https://tinyrustlm.com/.
 
 Boundary: MiRust.com coordinates and cites the implementation lanes. Public MiRust WordPress packages do not distribute GGUF/TinyRustLM implementation source, Rust implementation source, WebAssembly binaries, .slm files, adapter sidecars, GGUF artifacts, model weights, model execution, model training, model merging, or runtime authority.
 
