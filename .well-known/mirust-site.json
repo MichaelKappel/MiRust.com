@@ -1,23 +1,43 @@
 {
   "site": "https://mirust.com",
-  "version": "2.4.0",
-  "updated_utc": "2026-07-02T00:12:07Z",
+  "version": "2.5.0",
+  "updated_utc": "2026-07-02T00:00:00Z",
+  "root_discovery": {
+    "routes": [
+      "https://mirust.com/",
+      "https://mirust.com/llms.txt",
+      "https://mirust.com/llms-full.txt",
+      "https://mirust.com/robots.txt",
+      "https://mirust.com/mirust-public-sitemap.xml",
+      "https://mirust.com/.well-known/uaix-talisman.txt",
+      "https://mirust.com/.well-known/ai-ready-route-inventory.json",
+      "https://mirust.com/.well-known/mirust-site.json"
+    ],
+    "note": "This package asserts root-discovery files only. Do not infer topical page routes unless they are separately verified live."
+  },
   "project_constellation": {
-    "route": "https://mirust.com/project-constellation/",
+    "public_source": "https://mirust.com/llms-full.txt",
     "subdomains": [
       {
         "name": "TinyRustLM.MiRust.com",
         "url": "https://tinyrustlm.mirust.com/",
         "role": "TinyRustLM developer portal and absorbed legacy runtime documentation archive",
-        "observedUtc": "2026-07-02T00:12:07Z",
-        "observedStatus": "Plain PHP developer portal; legacy runtime documentation corpus preserved under /docs/runtime-portal/; browser-local Rust/WASM SLM runtime documentation; no authority granted by MiRust root files"
+        "observedUtc": "2026-07-02T00:00:00Z",
+        "observedStatus": "Plain PHP developer portal; legacy runtime documentation corpus preserved under /docs/runtime-portal/; browser-local Rust/WASM SLM runtime documentation"
       },
       {
         "name": "TinyRustLM.com",
         "url": "https://tinyrustlm.com/",
         "role": "Root-domain browser-local Rust/WASM app",
-        "observedUtc": "2026-07-02T00:12:07Z",
+        "observedUtc": "2026-07-02T00:00:00Z",
         "observedStatus": "Static browser-local app; users import local .slm files; project servers do not run or serve runnable model bytes"
+      },
+      {
+        "name": "MiniModel.MiRust.com",
+        "url": "https://minimodel.mirust.com/",
+        "role": "Developer documentation for MiniModel model exchange planning",
+        "observedUtc": "2026-07-02T00:00:00Z",
+        "observedStatus": "Documentation site for metadata-first model exchange planning and boundaries"
       },
       {
         "name": "GGUF.MiRust.com",
@@ -31,36 +51,22 @@
       {
         "name": "SLMComposer.com",
         "replacement": "https://tinyrustlm.com/",
-        "status": "no longer the canonical public app identity"
+        "status": "redirecting; no longer the canonical public app identity"
+      },
+      {
+        "name": "LMComposer.com",
+        "replacement": "https://tinyrustlm.com/",
+        "status": "redirecting; no longer a separate public product route"
       }
     ]
   },
-  "implementation_evidence": {
-    "archive": "Gguf.MiRust.zip",
-    "sha256": "dc8b57f7f957d63f72ac0768451f89305d90296d1c51ab7d76a595d2c90f59e8",
-    "reviewed_utc": "2026-06-28T14:20:00Z",
-    "route": "https://mirust.com/implementation/"
-  },
   "boundaries": [
-    "documentation site only",
+    "root-discovery surface only",
     "no model execution",
+    "no model hosting",
     "no model training or merging",
     "no root files grant write authority",
     "no certification or ranking claims",
-    "no implementation source in public WordPress packages"
-  ],
-  "packaging_boundary": {
-    "publicDeployables": [
-      "theme",
-      "core-plugin",
-      "root-discovery",
-      "starter-content",
-      "checksums",
-      "validation reports"
-    ],
-    "privateMaintainerArtifacts": [
-      "private UAI handoff",
-      "private website source"
-    ]
-  }
+    "no implementation source in public root-discovery package"
+  ]
 }

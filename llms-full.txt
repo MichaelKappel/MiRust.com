@@ -1,49 +1,42 @@
 # MiRust
 
-MiRust is the project-guide, evidence surface, and subdomain coordinator for Machine Intelligence for Rust-oriented systems.
+MiRust.com is the public root-discovery and talisman surface for the Rust-oriented project family. It is not the implementation host, not a model host, and not a remote inference service.
 
-Current key pages:
-- https://mirust.com/ - Home: Project overview and primary navigation
-- https://mirust.com/project-constellation/ - Project Constellation: Coordinator map for MiRust.com, TinyRustLM.MiRust.com, TinyRustLM.com, GGUF.MiRust.com, claim ownership, and no-op boundaries
-- https://mirust.com/implementation/ - Implementation: Actual TinyRustLM implementation evidence and limits
-- https://mirust.com/zero-dependency-runtime-improvements/ - Zero-Dependency Runtime Improvements: WASM SIMD, quantization, parser, memory and adapter hardening roadmap
-- https://mirust.com/k-quant-and-simd-roadmap/ - K-Quant and SIMD Roadmap: Hierarchical quantization and SIMD evidence requirements
-- https://mirust.com/adapter-breeding-strategy/ - Adapter Breeding Strategy: LoRA-first and adapter-first Model Breeding strategy
-- https://mirust.com/modelbreeder-gap-analysis/ - ModelBreeder Gap Analysis: Theory versus implementation comparison and roadmap gaps
-- https://mirust.com/on-device-rust-llm-ecology/ - On-device Rust LLM Ecology: Tiny local model ecology, routers, judges, and no-op controls
-- https://mirust.com/evolutionary-reference-guardrails/ - Evolutionary Reference Guardrails: Mutualist governance and red-team exclusions
-- https://mirust.com/model-breeding-implementation-blueprint/ - Model Breeding Implementation Blueprint: Governed implementation roadmap for registry-first Model Breeding
-- https://mirust.com/model-breeding-methods-reference/ - Model Breeding Methods Reference: Model merging, LoRA, distillation, ensembles, and no-op decision boundaries
-- https://mirust.com/governed-genomes-and-fitness/ - Governed Genomes and Fitness Vectors: Genome and FitnessVector records for candidate evaluation
-- https://mirust.com/modelbreeder-comparison/ - ModelBreeder Comparison: Comparison to external ModelBreeder terminology and source realities
-- https://mirust.com/model-breeding/ - Model Breeding: Governed model-evolution research discipline
-- https://mirust.com/code-beading/ - Code Beading: SIP records, durable memory, source intake, and handoff state
-- https://mirust.com/tiny-model-ecology/ - Tiny Model Ecology: Small model population and routing design
-- https://mirust.com/site-evidence/ - Site Evidence: Public evidence map for MiRust claims
-- https://mirust.com/answer-catalog/ - Answer Catalog: Direct answers for citable MiRust claims
-- https://mirust.com/source-grounding/ - Source Grounding: Visible evidence trails for generated summaries
-- https://mirust.com/search-discovery/ - Search Discovery: Titles, canonicals, structured data, and crawl basics
-- https://mirust.com/machine-readable-discovery/ - Machine-Readable Discovery: Root manifests and advisory discovery files
-- https://mirust.com/agent-support-boundary/ - Agent Support Boundary: Public-agent read/cite/no-op boundary
+## Verified Public Root Files
+
+- https://mirust.com/
+- https://mirust.com/llms.txt
+- https://mirust.com/llms-full.txt
+- https://mirust.com/robots.txt
+- https://mirust.com/mirust-public-sitemap.xml
+- https://mirust.com/.well-known/uaix-talisman.txt
+- https://mirust.com/.well-known/ai-ready-route-inventory.json
+- https://mirust.com/.well-known/mirust-site.json
+
+The root-discovery package does not currently assert topical WordPress-style page routes unless they are separately verified live. Agents should not infer that a named research topic has a public MiRust route unless the route returns 200 and is listed in current root-discovery files.
 
 ## Project Constellation
 
 MiRust.com is the coordinator and public evidence talisman. In this project, talisman means a durable, human-visible identity and boundary record: it preserves the map of names, subdomains, evidence ownership, support boundaries, and no-op behavior. It does not certify readiness, grant authentication, or run a model.
 
-Current implementation-facing routes:
+Current implementation-facing lanes:
+
 - https://tinyrustlm.mirust.com/ - TinyRustLM.MiRust.com is the TinyRustLM developer portal. It contains the absorbed legacy runtime docs, reports, package metadata, page registry, and checksum manifest under `/docs/runtime-portal/`.
 - https://tinyrustlm.com/ - TinyRustLM.com is the root-domain browser-local Rust/WASM app. Users import local `.slm` files through the browser file picker.
+- https://minimodel.mirust.com/ - MiniModel.MiRust.com is the developer documentation surface for MiniModel model exchange planning.
 - https://gguf.mirust.com/ - GGUF.MiRust.com remains the GGUF-facing implementation identity and future native GGUF parser evidence lane.
 
 Retired or redirecting identities:
+
 - SLMComposer.com is no longer the canonical public app identity. Current app access lives at https://tinyrustlm.com/.
+- LMComposer.com is no longer a separate public product route. Current app access lives at https://tinyrustlm.com/.
 
 ## Packaging Boundary
 
-Public deployables are the WordPress theme, MiRust Core plugin, root discovery files, WXR starter content, checksums, and validation reports. Private UAI memory and private website-source bundles are maintainer handoff artifacts and are not public web-root deployables.
+Public deployables are root-discovery files, `.well-known` manifests, checksums, and validation reports. Private UAI memory and private website-source bundles are maintainer handoff artifacts and are not public web-root deployables.
 
-MiRust.com coordinates and cites implementation lanes. Public MiRust WordPress packages do not distribute GGUF/TinyRustLM implementation source, Rust implementation source, WebAssembly binaries, `.slm` files, adapter sidecars, GGUF artifacts, model weights, model execution, model training, model merging, or runtime authority.
+MiRust.com coordinates and cites implementation lanes. Public MiRust root-discovery packages do not distribute GGUF/TinyRustLM implementation source, Rust implementation source, WebAssembly binaries, `.slm` files, adapter sidecars, GGUF artifacts, model weights, model execution, model training, model merging, or runtime authority.
 
 ## Agent Behavior
 
-Read visible pages, cite canonical routes, follow robots and terms, do not infer hidden authority, and no-op unsupported requests. For TinyRustLM implementation evidence, use TinyRustLM.MiRust.com. For the browser-local app, use TinyRustLM.com.
+Read visible root files, cite canonical routes, follow robots and terms, do not infer hidden authority, and no-op unsupported requests. For TinyRustLM implementation evidence, use TinyRustLM.MiRust.com. For the browser-local app, use TinyRustLM.com. For MiniModel exchange documentation, use MiniModel.MiRust.com.

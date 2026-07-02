@@ -4,4 +4,6 @@ Disallow: /wp-admin/
 Disallow: /wp-login.php
 Sitemap: https://mirust.com/mirust-public-sitemap.xml
 
+# MiRust.com currently asserts root-discovery files and .well-known manifests only.
+
 # Root files are discovery aids. They do not grant model execution, write access, private memory access, or scraping exceptions.

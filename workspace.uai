@@ -1,5 +1,5 @@
 profile: mirust.workspace.v2
-updated_utc: 2026-07-02T00:12:07Z
+updated_utc: 2026-07-02T00:00:00Z
 site: MiRust.com
 workspace_root: E:\Source\Rust\MiRust.com
 coordinator: E:\Source\Rust\workspace.uai
@@ -15,7 +15,7 @@ public_access_policy:
 deploy_gate:
   instruction: Before deploying MiRust.com or client-site talisman changes, update this talisman source and any affected client documentation sites so public-safe exports and live docs match the source being deployed.
   requirements:
-    - Keep TinyRustLM.MiRust.com, TinyRustLM.com, MiniModel.org, and any remaining retired-site redirect/public-export surfaces aligned before deployment.
+    - Keep TinyRustLM.MiRust.com, TinyRustLM.com, MiniModel.MiRust.com, MiniModel.org, and any remaining retired-site redirect/public-export surfaces aligned before deployment.
     - Treat the former standalone runtime documentation lane as absorbed into TinyRustLM.MiRust.com/developer-portal/.
     - Treat SLMComposer.com as retired public app identity; current app access belongs at TinyRustLM.com.
     - Run relevant pointer audits and git diff --check before packaging or deployment.
@@ -31,11 +31,14 @@ required_private_read_order:
 client_sites:
   - TinyRustLM.MiRust.com
   - TinyRustLM.com
+  - MiniModel.MiRust.com
   - MiniModel.org
 retired_sites:
   - SLMComposer.com
+  - LMComposer.com
 current_state:
   - MiRust.com is the public talisman source for the Rust site family.
+  - MiRust.com currently asserts root-discovery files and .well-known manifests only; topical page routes require separate live verification.
   - TinyRustLM.MiRust.com is the TinyRustLM developer portal and preserves the absorbed legacy runtime documentation archive.
   - TinyRustLM.com is the current browser-local Rust/WASM app route.
   - The live public-safe export is verified.

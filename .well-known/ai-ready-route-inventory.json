@@ -1,117 +1,47 @@
 {
-  "version": "2.4.0",
+  "version": "2.5.0",
   "site": "https://mirust.com",
-  "updated_utc": "2026-07-02T00:12:07Z",
+  "updated_utc": "2026-07-02T00:00:00Z",
   "routes": [
     {
       "path": "/",
       "title": "Home",
-      "purpose": "Project overview and primary navigation"
+      "purpose": "Public site root"
     },
     {
-      "path": "/project-constellation/",
-      "title": "Project Constellation",
-      "purpose": "Coordinator map for MiRust.com, TinyRustLM.MiRust.com, TinyRustLM.com, GGUF.MiRust.com, claim ownership, and no-op boundaries"
+      "path": "/llms.txt",
+      "title": "llms.txt",
+      "purpose": "Compact machine-readable route and boundary map"
     },
     {
-      "path": "/implementation/",
-      "title": "Implementation",
-      "purpose": "Actual TinyRustLM implementation evidence and limits"
+      "path": "/llms-full.txt",
+      "title": "llms-full.txt",
+      "purpose": "Expanded machine-readable constellation and boundary map"
     },
     {
-      "path": "/zero-dependency-runtime-improvements/",
-      "title": "Zero-Dependency Runtime Improvements",
-      "purpose": "WASM SIMD, quantization, parser, memory and adapter hardening roadmap"
+      "path": "/robots.txt",
+      "title": "Robots",
+      "purpose": "Crawl policy"
     },
     {
-      "path": "/k-quant-and-simd-roadmap/",
-      "title": "K-Quant and SIMD Roadmap",
-      "purpose": "Hierarchical quantization and SIMD evidence requirements"
+      "path": "/mirust-public-sitemap.xml",
+      "title": "Public Sitemap",
+      "purpose": "Root-discovery sitemap"
     },
     {
-      "path": "/adapter-breeding-strategy/",
-      "title": "Adapter Breeding Strategy",
-      "purpose": "LoRA-first and adapter-first Model Breeding strategy"
+      "path": "/.well-known/uaix-talisman.txt",
+      "title": "UAIX Talisman",
+      "purpose": "Public talisman export"
     },
     {
-      "path": "/modelbreeder-gap-analysis/",
-      "title": "ModelBreeder Gap Analysis",
-      "purpose": "Theory versus implementation comparison and roadmap gaps"
+      "path": "/.well-known/ai-ready-route-inventory.json",
+      "title": "AI-Ready Route Inventory",
+      "purpose": "Public route inventory"
     },
     {
-      "path": "/on-device-rust-llm-ecology/",
-      "title": "On-device Rust LLM Ecology",
-      "purpose": "Tiny local model ecology, routers, judges, and no-op controls"
-    },
-    {
-      "path": "/evolutionary-reference-guardrails/",
-      "title": "Evolutionary Reference Guardrails",
-      "purpose": "Mutualist governance and red-team exclusions"
-    },
-    {
-      "path": "/model-breeding-implementation-blueprint/",
-      "title": "Model Breeding Implementation Blueprint",
-      "purpose": "Governed implementation roadmap for registry-first Model Breeding"
-    },
-    {
-      "path": "/model-breeding-methods-reference/",
-      "title": "Model Breeding Methods Reference",
-      "purpose": "Model merging, LoRA, distillation, ensembles, and no-op decision boundaries"
-    },
-    {
-      "path": "/governed-genomes-and-fitness/",
-      "title": "Governed Genomes and Fitness Vectors",
-      "purpose": "Genome and FitnessVector records for candidate evaluation"
-    },
-    {
-      "path": "/modelbreeder-comparison/",
-      "title": "ModelBreeder Comparison",
-      "purpose": "Comparison to external ModelBreeder terminology and source realities"
-    },
-    {
-      "path": "/model-breeding/",
-      "title": "Model Breeding",
-      "purpose": "Governed model-evolution research discipline"
-    },
-    {
-      "path": "/code-beading/",
-      "title": "Code Beading",
-      "purpose": "SIP records, durable memory, source intake, and handoff state"
-    },
-    {
-      "path": "/tiny-model-ecology/",
-      "title": "Tiny Model Ecology",
-      "purpose": "Small model population and routing design"
-    },
-    {
-      "path": "/site-evidence/",
-      "title": "Site Evidence",
-      "purpose": "Public evidence map for MiRust claims"
-    },
-    {
-      "path": "/answer-catalog/",
-      "title": "Answer Catalog",
-      "purpose": "Direct answers for citable MiRust claims"
-    },
-    {
-      "path": "/source-grounding/",
-      "title": "Source Grounding",
-      "purpose": "Visible evidence trails for generated summaries"
-    },
-    {
-      "path": "/search-discovery/",
-      "title": "Search Discovery",
-      "purpose": "Titles, canonicals, structured data, and crawl basics"
-    },
-    {
-      "path": "/machine-readable-discovery/",
-      "title": "Machine-Readable Discovery",
-      "purpose": "Root manifests and advisory discovery files"
-    },
-    {
-      "path": "/agent-support-boundary/",
-      "title": "Agent Support Boundary",
-      "purpose": "Public-agent read/cite/no-op boundary"
+      "path": "/.well-known/mirust-site.json",
+      "title": "MiRust Site Manifest",
+      "purpose": "Public site manifest"
     }
   ],
   "subdomains": [
@@ -119,15 +49,22 @@
       "name": "TinyRustLM.MiRust.com",
       "url": "https://tinyrustlm.mirust.com/",
       "role": "TinyRustLM developer portal and absorbed legacy runtime documentation archive",
-      "observedUtc": "2026-07-02T00:12:07Z",
-      "observedStatus": "Plain PHP developer portal; legacy runtime documentation corpus preserved under /docs/runtime-portal/; browser-local Rust/WASM SLM runtime documentation; no authority granted by MiRust root files"
+      "observedUtc": "2026-07-02T00:00:00Z",
+      "observedStatus": "Plain PHP developer portal; legacy runtime documentation corpus preserved under /docs/runtime-portal/; browser-local Rust/WASM SLM runtime documentation"
     },
     {
       "name": "TinyRustLM.com",
       "url": "https://tinyrustlm.com/",
       "role": "Root-domain browser-local Rust/WASM app",
-      "observedUtc": "2026-07-02T00:12:07Z",
+      "observedUtc": "2026-07-02T00:00:00Z",
       "observedStatus": "Static browser-local app; users import local .slm files; project servers do not run or serve runnable model bytes"
+    },
+    {
+      "name": "MiniModel.MiRust.com",
+      "url": "https://minimodel.mirust.com/",
+      "role": "Developer documentation for MiniModel model exchange planning",
+      "observedUtc": "2026-07-02T00:00:00Z",
+      "observedStatus": "Documentation site for metadata-first model exchange planning and boundaries"
     },
     {
       "name": "GGUF.MiRust.com",
@@ -141,7 +78,13 @@
     {
       "name": "SLMComposer.com",
       "replacement": "https://tinyrustlm.com/",
-      "status": "no longer the canonical public app identity"
+      "status": "redirecting; no longer the canonical public app identity"
+    },
+    {
+      "name": "LMComposer.com",
+      "replacement": "https://tinyrustlm.com/",
+      "status": "redirecting; no longer a separate public product route"
     }
-  ]
+  ],
+  "boundary": "MiRust.com root-discovery files do not grant model execution, model hosting, model training, model serving, implementation-source distribution, write authority, certification, or scraping exceptions."
 }
