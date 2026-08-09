@@ -1,5 +1,5 @@
-profile: mirust.talisman-source.totem.v1
-updated_utc: 2026-07-01T03:10:00Z
+profile: mirust.talisman-source.totem.v2
+updated_utc: 2026-08-09T05:14:02Z
 site: MiRust.com
 role: positive_anchor
 mission: Preserve the Rust-family identity for local-first model runtimes, checksum-bound evidence, peer/local model agency, and UAIX-style memory discipline.
@@ -14,3 +14,11 @@ agent_mutability: read_only_without_exact_human_artifact_and_operation_authoriza
 pre_publication_clean_slate_policy_id: pre-publication-clean-slate-v1
 pre_publication_clean_slate_authority: "Treat this site and every consuming system as pre-publication dogfood, even when a development URL is publicly reachable. Until the human explicitly removes this authority, choose the best current architecture; full rewrites and clean contract replacements are authorized when they improve correctness, security, maintainability, performance, accessibility, or product quality."
 pre_publication_replacement_completion_authority: "Verify replacements end to end, migrate every dogfood caller to one current contract, remove superseded implementation in the same completed change, and finish tests, documentation, security review, and cleanup before deployment. Preserve immutable receipts and historical failure evidence as audit truth, never as a promise to support obsolete product behavior."
+documentation_integrity_policy_id: site-family-documentation-integrity-v1
+documentation_site_role: documentation-evidence-marketing-architecture-research-and-governance-authority
+documentation_integrity_authority: "Documentation is a first-class production surface and a primary function of this site. Keep architecture, governance, research synthesis, evidence boundaries, product relationships, security, privacy, accessibility, limitations, and release material complete, technically rigorous, navigable, searchable, and current."
+documentation_same_change_rule: "Update every affected page, example, diagram, claim, cross-site link, version reference, update history entry, and machine-readable release record in the same completed change as the product, contract, governance, or evidence change it describes."
+documentation_verification_rule: "Before publication, verify sources and claim scope, examples, links, navigation, search discoverability, accessibility, responsive rendering, version consistency, and public HTTPS readback across the full affected documentation closure."
+documentation_truth_rule: "Clearly distinguish research, proposal, implementation, local test, independent proof, deployment, limitation, rejection, and blocker. Marketing language must never outrun objective evidence or the authoritative product and documentation sites."
+documentation_release_gate: "Do not publish an affected site when documentation is incomplete, stale, contradictory, unsupported, version-skewed, unverified, or inconsistent with related sites and release evidence."
+documentation_clean_replacement_rule: "Remove superseded guidance and claims after verified replacement. Preserve immutable release history and failure evidence separately; do not retain obsolete instructions or descriptions as legacy support."
