@@ -1,5 +1,5 @@
 profile: mirust.file-handoff.v1
-updated_utc: 2026-07-01T03:10:00Z
+updated_utc: 2026-08-09T22:06:41Z
 site: MiRust.com
 setup_route: https://uaix.org/en-us/tools/ai-memory-package-wizard/#setup-file-handoff
 active_buckets:
@@ -15,3 +15,9 @@ placeholder_files:
   - agent-file-handoff/Content/.gitkeep
   - agent-file-handoff/Improvement/.gitkeep
 completion_gate: Active buckets must be empty or placeholder-only after processing.
+
+credit_window_handoff_2026_08_09:
+  status: bounded_source_pushed_publication_not_attempted
+  source_head_before_handoff_commit: b3dcbb90337d3e19a3da09c9b575aa5cc963c09b
+  source_scope: metadata, discovery, governance, and talisman files only; not a complete production WordPress closure
+  restart: Obtain a complete clean production source and release contract, synchronize affected Rust-family documentation and marketing, run all gates, and preserve authoritative publication receipts. Do not infer deployment from reachability.

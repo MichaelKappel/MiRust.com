@@ -1,0 +1,4 @@
+profile: mirust.next-recursive-prompt.v1
+updated_utc: 2026-08-09T22:06:41Z
+prompt: >-
+  Continue MiRust.com from its pushed bounded metadata/governance source. Read workspace.uai and private handoff memory first. Do not attempt to deploy the current repository as a complete WordPress site: it is not an authoritative full production snapshot and no publication was performed in the 2026-08-09 work window. Obtain or construct one clean current production closure and incompatible release contract, with no legacy support, compatibility shim, migration reader, or low-quality patch. Synchronize affected documentation and marketing across the Rust site family, run every component and release gate, and require authoritative transport plus public HTTPS readback before recording an append-only success receipt.

@@ -1,6 +1,12 @@
 profile: mirust.short-term-memory.v1
-updated_utc: 2026-07-01T03:10:00Z
+updated_utc: 2026-08-09T22:06:41Z
 current_state:
   - MiRust.com is the talisman source for the Rust-family sites: Runtime.MiRust.com, TinyRustLM.MiRust.com, SLMComposer.com, and MiniModel.org.
   - File Handoff setup is initialized with Content and Improvement buckets, disposition ledger, and placeholder-only active intake.
   - Client sites reference MiRust.com one-way; local site ownership, deployment, review, and runtime controls remain local.
+
+credit_window_handoff_2026_08_09:
+  current_truth: Commit b3dcbb90337d3e19a3da09c9b575aa5cc963c09b is pushed for the bounded metadata, discovery, governance, and talisman source. This repository is not a complete WordPress production snapshot.
+  publication_status: No MiRust.com publication was attempted or claimed. Live HTTPS reachability is observation only.
+  blocker: A complete authoritative production closure, deploy transport, release ledger, full test gate, and public readback contract are unavailable in this repository.
+  next_action: Build a clean current release source rather than adding legacy support or patching an incomplete snapshot; synchronize all affected documentation and marketing before publication.

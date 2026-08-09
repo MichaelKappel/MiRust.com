@@ -1,5 +1,5 @@
 profile: mirust.workspace.v2
-updated_utc: 2026-07-02T00:00:00Z
+updated_utc: 2026-08-09T22:06:41Z
 site: MiRust.com
 workspace_root: E:\Source\Rust\MiRust.com
 coordinator: E:\Source\Rust\workspace.uai
@@ -43,3 +43,23 @@ current_state:
   - TinyRustLM.com is the current browser-local Rust/WASM app route.
   - The live public-safe export is verified.
   - Direct public .uai and agent-file-handoff access is denied.
+
+credit_window_handoff_2026_08_09:
+  authority: Current private restart account. It supersedes incompatible present-tense wording in older dated memory without changing historical evidence.
+  repository:
+    clean_release_clone: E:\Source\Worktrees\rust-site-release-20260809\MiRust.com
+    branch: master
+    upstream: origin/master
+    head_before_handoff_commit: b3dcbb90337d3e19a3da09c9b575aa5cc963c09b
+  current_truth:
+    source_scope: The repository is a pushed metadata, discovery, governance, and talisman source. It is not a complete independently deployable WordPress production snapshot.
+    publication_status: No MiRust.com publication was attempted or claimed in this work window.
+    live_status: The HTTPS site was reachable during bounded observation, which is not publication evidence.
+  blocker:
+    code: incomplete_deployment_source
+    detail: A complete authoritative production source closure, release ledger, deploy transport, and readback contract are required before a site publication can be performed or claimed.
+  next_actions:
+    - Preserve the pushed metadata/governance source as the current authority for its bounded scope.
+    - Obtain a complete clean production snapshot and define one incompatible current release contract; add no legacy reader or migration shim.
+    - Synchronize affected marketing and documentation with the other Rust-family sites.
+    - Run the complete gate and create append-only publication evidence before claiming deployment.
