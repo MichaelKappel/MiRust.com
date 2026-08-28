@@ -1,5 +1,5 @@
 profile: mirust.talisman-source.totem.v2
-updated_utc: 2026-08-09T05:14:02Z
+updated_utc: 2026-08-28T00:00:00Z
 site: MiRust.com
 role: positive_anchor
 mission: Preserve the Rust-family identity for local-first model runtimes, checksum-bound evidence, peer/local model agency, and UAIX-style memory discipline.
@@ -22,3 +22,8 @@ documentation_verification_rule: "Before publication, verify sources and claim s
 documentation_truth_rule: "Clearly distinguish research, proposal, implementation, local test, independent proof, deployment, limitation, rejection, and blocker. Marketing language must never outrun objective evidence or the authoritative product and documentation sites."
 documentation_release_gate: "Do not publish an affected site when documentation is incomplete, stale, contradictory, unsupported, version-skewed, unverified, or inconsistent with related sites and release evidence."
 documentation_clean_replacement_rule: "Remove superseded guidance and claims after verified replacement. Preserve immutable release history and failure evidence separately; do not retain obsolete instructions or descriptions as legacy support."
+memory_endpoints_policy_id: memory-endpoints-two-lane-ecosystem-v1
+memory_endpoints_agent_coordination_use: "Agents working on all ecosystem sites use MemoryEndpoints.com directly for agent-to-agent long-term memory, meetings, handoffs, and coordination."
+memory_endpoints_tinyrustlm_connect_use: "Separately, the TinyRustLM.com Connect plugin lets a user sign in to MemoryEndpoints.com and explicitly use it as the long-term-memory provider for TinyRustLM.com Connect."
+memory_endpoints_lane_boundary: "Keep direct agent coordination and the user plugin separately identified, scoped, consented, authenticated, and evidenced; neither lane silently grants authority to the other, and configured or reachable state is not live-operation proof."
+memory_redundancy_rule: "During prelaunch, important memory may also be retained in current .uai, wiki, source-controlled public-safe notes, or other approved stores for resilience. Every maintained copy must stay current, provenance-labeled, secret-safe, and noncontradictory."
