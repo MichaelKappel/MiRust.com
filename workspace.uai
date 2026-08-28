@@ -1,65 +1,19 @@
-profile: mirust.workspace.v2
-updated_utc: 2026-08-09T22:06:41Z
+profile: mirust.workspace.current.v1
+updated_utc: 2026-08-28T00:00:00Z
 site: MiRust.com
-workspace_root: E:\Source\Rust\MiRust.com
-coordinator: E:\Source\Rust\workspace.uai
-role: talisman_source
-sensitivity: internal
-public_export: https://MiRust.com/.well-known/uaix-talisman.txt
-private_memory_root: .uai/
-private_intake_root: agent-file-handoff/
-public_access_policy:
-  .uai: denied
-  agent-file-handoff: denied
-  workspace.uai: do_not_publish_without_root_deny_or_auth
-deploy_gate:
-  instruction: Before deploying MiRust.com or client-site talisman changes, update this talisman source and any affected client documentation sites so public-safe exports and live docs match the source being deployed.
-  requirements:
-    - Keep TinyRustLM.MiRust.com, TinyRustLM.com, MiniModel.MiRust.com, MiniModel.org, and any remaining retired-site redirect/public-export surfaces aligned before deployment.
-    - Treat the former standalone runtime documentation lane as absorbed into TinyRustLM.MiRust.com/developer-portal/.
-    - Treat SLMComposer.com as retired public app identity; current app access belongs at TinyRustLM.com.
-    - Run relevant pointer audits and git diff --check before packaging or deployment.
-required_private_read_order:
-  - workspace.uai
-  - .uai/index.uai
-  - .uai/totem.uai
-  - .uai/taboo.uai
-  - .uai/talisman.uai
-  - .uai/file-handoff.uai
-  - .uai/intake-outcome-ledger.uai
-  - .uai/short-term-memory.uai
-client_sites:
-  - TinyRustLM.MiRust.com
-  - TinyRustLM.com
-  - MiniModel.MiRust.com
-  - MiniModel.org
-retired_sites:
-  - SLMComposer.com
-  - LMComposer.com
-current_state:
-  - MiRust.com is the public talisman source for the Rust site family.
-  - MiRust.com currently asserts root-discovery files and .well-known manifests only; topical page routes require separate live verification.
-  - TinyRustLM.MiRust.com is the TinyRustLM developer portal and preserves the absorbed legacy runtime documentation archive.
-  - TinyRustLM.com is the current browser-local Rust/WASM app route.
-  - The live public-safe export is verified.
-  - Direct public .uai and agent-file-handoff access is denied.
+status: ecosystem-governance-authority
+current_authority:
+  - Preserve Rust-first, local-first, checksum-bound engineering and evidence boundaries.
+  - Treat TinyRustLM as one prelaunch clean-slate product with no legacy or compatibility obligation.
+  - Read .uai/totem.uai and .uai/taboo.uai before changing ecosystem governance or claims.
 
-credit_window_handoff_2026_08_09:
-  authority: Current private restart account. It supersedes incompatible present-tense wording in older dated memory without changing historical evidence.
-  repository:
-    clean_release_clone: E:\Source\Worktrees\rust-site-release-20260809\MiRust.com
-    branch: master
-    upstream: origin/master
-    head_before_handoff_commit: b3dcbb90337d3e19a3da09c9b575aa5cc963c09b
-  current_truth:
-    source_scope: The repository is a pushed metadata, discovery, governance, and talisman source. It is not a complete independently deployable WordPress production snapshot.
-    publication_status: No MiRust.com publication was attempted or claimed in this work window.
-    live_status: The HTTPS site was reachable during bounded observation, which is not publication evidence.
-  blocker:
-    code: incomplete_deployment_source
-    detail: A complete authoritative production source closure, release ledger, deploy transport, and readback contract are required before a site publication can be performed or claimed.
-  next_actions:
-    - Preserve the pushed metadata/governance source as the current authority for its bounded scope.
-    - Obtain a complete clean production snapshot and define one incompatible current release contract; add no legacy reader or migration shim.
-    - Synchronize affected marketing and documentation with the other Rust-family sites.
-    - Run the complete gate and create append-only publication evidence before claiming deployment.
+memory_endpoints_two_lane_authority:
+  direct_agent_coordination: Agents working on all ecosystem sites use MemoryEndpoints.com directly for agent-to-agent long-term memory, meetings, handoffs, and coordination.
+  tinyrustlm_connect_user_plugin: Separately, the TinyRustLM.com Connect plugin lets a user sign in to MemoryEndpoints.com and explicitly select it as TinyRustLM.com Connect long-term memory.
+  isolation: Keep lane identity, credentials, consent, scopes, provenance, idempotency, and receipts separate. Neither lane silently acts for the other.
+  proof_boundary: Authorization, implementation, configuration, fixtures, mocks, or reachability do not prove live use, account correctness, synchronization, restore, deletion, cleanup, or continuity.
+
+prelaunch_redundancy:
+  policy: Important memory may also be kept in current .uai, wiki, public-safe source notes, and approved private stores for resilience.
+  invariant: Every maintained copy stays current, secret-safe, provenance-labeled, and noncontradictory.
+  conflict_rule: Surface and reconcile conflicts; do not silently choose one contradictory copy.
