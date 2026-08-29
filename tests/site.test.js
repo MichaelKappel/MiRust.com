@@ -71,6 +71,8 @@ test("private and deployment files are outside the public closure", () => {
   assert.ok(publicPaths);
   assert.match(builder, /"workspace\.uai": \{ status: "present"/);
   assert.match(builder, /prohibited_public_paths/);
+  assert.match(builder, /fs\.mkdirSync\(stagingParent, \{ recursive: true \}\)/);
+  assert.match(builder, /fs\.mkdirSync\(stagingRoot, \{ recursive: false \}\)/);
   assert.doesNotMatch(
     publicPaths[0],
     /workspace\.uai|\.uai\/|deploy\/|tests\/|tools\//,

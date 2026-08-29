@@ -15,6 +15,7 @@ const outputPath = path.resolve(
 const version = "2.6.0";
 const operationId = "mirust-root-discovery-2.6.0-20260829-v1";
 const stagingRoot = path.join(repositoryRoot, "deploy", "staging", version);
+const stagingParent = path.dirname(stagingRoot);
 
 if (!/^[0-9a-f]{40}$/.test(contentCommit || "")) {
   throw new Error("Usage: node tools/build-site-deployment-manifest.js <40-character-content-commit> [output]");
@@ -93,6 +94,7 @@ for (const retiredPath of retiredBefore.keys()) {
   }
 }
 
+fs.mkdirSync(stagingParent, { recursive: true });
 fs.mkdirSync(stagingRoot, { recursive: false });
 const files = publicPaths.map((relativePath) => {
   const committed = git(["show", `${contentCommit}:${relativePath}`], null);
