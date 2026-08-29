@@ -5,8 +5,8 @@ never uploads, merges, clears, or treats the live WordPress tree as source.
 
 ```powershell
 node tools/build-site-deployment-manifest.js <content-commit>
-pwsh -File tools/deploy-site.ps1
-pwsh -File tools/deploy-site.ps1 -Publish
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/deploy-site.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/deploy-site.ps1 -Publish
 ```
 
 The manifest generator reconstructs canonical Git blob bytes into an ignored,
