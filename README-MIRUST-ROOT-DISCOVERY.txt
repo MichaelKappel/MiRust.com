@@ -1,1 +1,16 @@
-Extract this ZIP at the MiRust.com document root on staging. Merge carefully with any existing robots.txt, security.txt, verification files, or custom .well-known records. These files describe verified public MiRust root-discovery files and public subdomain lanes only. They do not assert topical page routes unless those routes are separately verified live. They grant no execution, model, write, scraping-exception, certification, private UAI, or implementation-source authority.
+MiRust.com Root Discovery 2.6.0
+
+This repository is the bounded source for named public root-discovery files.
+It is not a complete WordPress source tree and must never be uploaded as one.
+
+Publication is allowed only from the immutable Git content commit named by
+deploy/site-deployment-manifest.v1.json, through tools/deploy-site.ps1. The
+publisher authenticates every remote before-state, changes only manifest
+members, retires only exact registered files, publishes the release marker
+last, and writes one append-only terminal receipt.
+
+Private .uai files, workspace.uai, deployment tools, tests, receipts, staging,
+credentials, and historical ZIP packages are not public release members.
+Historical implementations and superseded metadata contracts exist only in
+Git history. Current source and production paths contain no legacy reader,
+validator, schema, fallback, compatibility alias, or migration.

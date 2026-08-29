@@ -1,0 +1,25 @@
+{
+  "schema": "uaix.site_release_history.v1",
+  "site_id": "mirust.com",
+  "origin": "https://mirust.com",
+  "current_release_id": "mirust.com@2.6.0",
+  "releases": [
+    {
+      "release_id": "mirust.com@2.6.0",
+      "version": "2.6.0",
+      "release_date": "2026-08-29",
+      "last_publish_date": "2026-08-29",
+      "summary": "Replaces stale constellation metadata with one bounded clean-slate root-discovery release and one current TinyRustLM source-authority rule.",
+      "changes": [
+        "Bound every current ecosystem lane to its independently read-back public release identity and removed an unresolvable proposed lane from current claims.",
+        "Removed superseded duplicate AI-ready metadata contracts from current source and public routing; their bytes remain only in Git and immutable deployment evidence.",
+        "Retired the publicly readable private workspace handoff and obsolete root-discovery ZIP packages from the web root.",
+        "Added fail-closed tests and create-only deployment controls that reject duplicate source authority, stale-tree union merges, unregistered files, remote before-state drift, or nonterminal publication evidence."
+      ],
+      "limitations": [
+        "This release does not replace or certify the WordPress application source.",
+        "This release proves no qualified model, model inference, peer availability, portable-memory round, or campaign progress."
+      ]
+    }
+  ]
+}

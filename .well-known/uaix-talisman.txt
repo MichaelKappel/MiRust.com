@@ -1,35 +1,42 @@
 UAIX Talisman Public Export
 site: MiRust.com
-role: talisman-source
-updated_utc: 2026-07-02T00:00:00Z
+role: root-discovery-governance-orientation
+release: mirust.com@2.6.0
+updated_utc: 2026-08-29T00:00:00Z
 
 Purpose
-MiRust.com is the public talisman source for this Rust-family site cluster. This file is a public orientation export only. It is not the private .uai memory package.
+MiRust.com maps current public Rust-family lanes and their evidence boundaries.
+This public export is not private UAI memory, certification, authentication,
+runtime authority, source authority, or permission to write.
 
-Public Anchors
-- Rust-first engineering.
-- Local-first and browser-local model execution boundaries.
-- Checksum-bearing provenance for model packages, reports, and durable evidence.
-- Client sites reference MiRust.com one-way for posture, not approval or certification.
+Current Public Lanes
+- TinyRustLM.com: browser-local clean-slate SLM2 application shell, release 0.3.0.
+- TinyRustLM.MiRust.com: developer documentation and evidence portal, release 1.8.1.
+- MiniModel.org: metadata-only SLM2 catalog and acquisition documentation, release 1.1.1.
+- MiniModel.MiRust.com: MiniModel developer documentation, release 1.1.0.
 
-Client Sites
-- TinyRustLM.MiRust.com
-- TinyRustLM.com
-- MiniModel.MiRust.com
-- MiniModel.org
+Redirect-Only Names
+- Runtime.MiRust.com redirects to the TinyRustLM developer portal.
+- LMComposer.com and SLMComposer.com redirect to TinyRustLM.com.
+- Redirect-only names are not compatibility products, source authorities, or fallbacks.
 
-Retired Sites
-- SLMComposer.com is no longer the canonical public app identity; current app access belongs at TinyRustLM.com.
-- LMComposer.com is no longer a separate public product route; current app access belongs at TinyRustLM.com.
+Single-Source Rule
+One current TinyRustLM source authority is allowed. A second writable checkout
+blocks build, test, release, and deployment. Consolidation is semantic and
+test-driven; stale trees are never union-merged wholesale.
 
-Route Boundary
-MiRust.com currently publishes root-discovery files and .well-known manifests. Do not infer topical MiRust page routes unless a route is separately verified live.
+Clean-Slate Rule
+Historical implementations and superseded metadata contracts exist only in
+Git history. Current source and production paths contain no legacy reader,
+validator, schema, fallback, compatibility alias, migration, or accepted debt.
 
-Private Memory Boundary
-The .uai directory is internal operational memory and should not be crawled or served as public documentation. Agents with filesystem or FTP authority may read local .uai files according to project instructions.
+Evidence Boundary
+Root files do not prove qualified model bytes, inference, browser conversation,
+peer availability, portable-memory continuity, another site's publication, or
+campaign progress. Private UAI, workspace.uai, agent-file-handoff, credentials,
+raw evidence, model bytes, prompts, source, tools, tests, receipts, staging, and
+historical ZIPs are not public release members.
 
-File Handoff Boundary
-agent-file-handoff is an operational intake path, not a public content API. Processed intake must be reviewed, dispositioned, recorded, and cleared.
-
-Public Export Strategy
-Public agents should read this .txt export. Private agents should read the local .uai package from trusted workspace or authenticated operations channels.
+Agent Behavior
+Read visible files, cite canonical routes, respect robots and terms, never infer
+hidden authority, and no-op unsupported requests.

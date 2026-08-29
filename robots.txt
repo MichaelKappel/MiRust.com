@@ -2,8 +2,13 @@ User-agent: *
 Allow: /
 Disallow: /wp-admin/
 Disallow: /wp-login.php
+Disallow: /.uai/
+Disallow: /agent-file-handoff/
+Disallow: /workspace.uai
+Disallow: /deploy/
+Disallow: /tests/
+Disallow: /tools/
 Sitemap: https://mirust.com/mirust-public-sitemap.xml
 
-# MiRust.com currently asserts root-discovery files and .well-known manifests only.
-
-# Root files are discovery aids. They do not grant model execution, write access, private memory access, or scraping exceptions.
+# MiRust.com release 2.6.0 asserts named root-discovery files only.
+# Root files grant no model, write, private-memory, or scraping authority.

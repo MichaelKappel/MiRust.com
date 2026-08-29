@@ -1,27 +1,39 @@
 # MiRust
 
-MiRust.com is the public root-discovery and talisman surface for the Rust-oriented project family.
+MiRust.com is the public root-discovery and governance-orientation surface for
+the Rust-oriented project family. It is not an implementation host, model
+host, inference service, release proxy, or source-code authority.
+
+Current root-discovery release: 2.6.0, dated 2026-08-29.
 
 Verified public root files:
-- https://mirust.com/ - public site root
-- https://mirust.com/llms.txt - compact machine-readable route and boundary map
-- https://mirust.com/llms-full.txt - expanded machine-readable constellation and boundary map
-- https://mirust.com/robots.txt - crawl policy
-- https://mirust.com/mirust-public-sitemap.xml - root-discovery sitemap
-- https://mirust.com/.well-known/uaix-talisman.txt - public talisman export
-- https://mirust.com/.well-known/ai-ready-route-inventory.json - public route inventory
-- https://mirust.com/.well-known/mirust-site.json - public site manifest
+- https://mirust.com/
+- https://mirust.com/llms.txt
+- https://mirust.com/llms-full.txt
+- https://mirust.com/robots.txt
+- https://mirust.com/mirust-public-sitemap.xml
+- https://mirust.com/.well-known/uaix-talisman.txt
+- https://mirust.com/.well-known/ai-ready-route-inventory.json
+- https://mirust.com/.well-known/mirust-site.json
+- https://mirust.com/.well-known/site-release-history.json
+- https://mirust.com/.well-known/site-release.json
 
-Current implementation-facing lanes:
-- https://tinyrustlm.mirust.com/ - TinyRustLM.MiRust.com: TinyRustLM developer portal with the absorbed legacy runtime documentation archive.
-- https://tinyrustlm.com/ - TinyRustLM.com: root-domain browser-local Rust/WASM app.
-- https://minimodel.mirust.com/ - MiniModel.MiRust.com: developer documentation for MiniModel model exchange planning.
-- https://gguf.mirust.com/ - GGUF.MiRust.com: GGUF-facing implementation identity and future native GGUF parser evidence lane.
+Current public lanes:
+- https://tinyrustlm.com/ - browser-local clean-slate SLM2 application shell, public release 0.3.0.
+- https://tinyrustlm.mirust.com/ - TinyRustLM developer documentation and bounded evidence portal, public release 1.8.1.
+- https://minimodel.org/ - metadata-only SLM2 catalog and acquisition documentation, public release 1.1.1.
+- https://minimodel.mirust.com/ - MiniModel developer documentation, public release 1.1.0.
 
-Retired public app identities:
-- SLMComposer.com redirects to https://tinyrustlm.com/.
-- LMComposer.com redirects to https://tinyrustlm.com/.
+Runtime.MiRust.com redirects to the TinyRustLM developer portal.
+LMComposer.com and SLMComposer.com redirect to TinyRustLM.com. Redirect-only
+names are not separate products, source authorities, runtimes, schemas, or
+compatibility contracts.
 
-Boundary: MiRust.com coordinates and cites implementation lanes. Public MiRust root-discovery files do not distribute GGUF/TinyRustLM implementation source, Rust implementation source, WebAssembly binaries, .slm files, adapter sidecars, GGUF artifacts, model weights, model execution, model training, model merging, or runtime authority.
+Historical implementations and superseded metadata contracts exist only in
+Git history. Current source and production paths contain no legacy reader,
+validator, schema, fallback, compatibility alias, or migration.
 
-Agent behavior: read visible root files, cite canonical routes, follow robots and terms, do not infer hidden authority, and no-op unsupported requests.
+No public root file proves a qualified model, real model execution, peer
+availability, portable-memory round, deployment beyond its named release, or
+campaign progress. Read visible files, cite canonical routes, respect robots
+and terms, do not infer hidden authority, and no-op unsupported requests.

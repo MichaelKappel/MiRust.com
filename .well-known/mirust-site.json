@@ -1,72 +1,60 @@
 {
+  "schema": "mirust.site_manifest.v1",
   "site": "https://mirust.com",
-  "version": "2.5.0",
-  "updated_utc": "2026-07-02T00:00:00Z",
-  "root_discovery": {
-    "routes": [
-      "https://mirust.com/",
-      "https://mirust.com/llms.txt",
-      "https://mirust.com/llms-full.txt",
-      "https://mirust.com/robots.txt",
-      "https://mirust.com/mirust-public-sitemap.xml",
-      "https://mirust.com/.well-known/uaix-talisman.txt",
-      "https://mirust.com/.well-known/ai-ready-route-inventory.json",
-      "https://mirust.com/.well-known/mirust-site.json"
-    ],
-    "note": "This package asserts root-discovery files only. Do not infer topical page routes unless they are separately verified live."
-  },
-  "project_constellation": {
-    "public_source": "https://mirust.com/llms-full.txt",
-    "subdomains": [
-      {
-        "name": "TinyRustLM.MiRust.com",
-        "url": "https://tinyrustlm.mirust.com/",
-        "role": "TinyRustLM developer portal and absorbed legacy runtime documentation archive",
-        "observedUtc": "2026-07-02T00:00:00Z",
-        "observedStatus": "Plain PHP developer portal; legacy runtime documentation corpus preserved under /docs/runtime-portal/; browser-local Rust/WASM SLM runtime documentation"
-      },
-      {
-        "name": "TinyRustLM.com",
-        "url": "https://tinyrustlm.com/",
-        "role": "Root-domain browser-local Rust/WASM app",
-        "observedUtc": "2026-07-02T00:00:00Z",
-        "observedStatus": "Static browser-local app; users import local .slm files; project servers do not run or serve runnable model bytes"
-      },
-      {
-        "name": "MiniModel.MiRust.com",
-        "url": "https://minimodel.mirust.com/",
-        "role": "Developer documentation for MiniModel model exchange planning",
-        "observedUtc": "2026-07-02T00:00:00Z",
-        "observedStatus": "Documentation site for metadata-first model exchange planning and boundaries"
-      },
-      {
-        "name": "GGUF.MiRust.com",
-        "url": "https://gguf.mirust.com/",
-        "role": "GGUF-facing implementation identity and future native GGUF parser evidence lane",
-        "observedUtc": "2026-06-30T00:00:00Z",
-        "observedStatus": "Owner-identified boundary; verify public route and evidence before promoting native GGUF parser claims"
-      }
-    ],
-    "retired": [
-      {
-        "name": "SLMComposer.com",
-        "replacement": "https://tinyrustlm.com/",
-        "status": "redirecting; no longer the canonical public app identity"
-      },
-      {
-        "name": "LMComposer.com",
-        "replacement": "https://tinyrustlm.com/",
-        "status": "redirecting; no longer a separate public product route"
-      }
-    ]
+  "version": "2.6.0",
+  "release_id": "mirust.com@2.6.0",
+  "release_date": "2026-08-29",
+  "scope": "bounded-root-discovery-only",
+  "wordpress_source_included": false,
+  "current_lanes": [
+    {
+      "name": "TinyRustLM.com",
+      "url": "https://tinyrustlm.com/",
+      "version": "0.3.0",
+      "role": "browser-local clean-slate SLM2 application shell",
+      "claim_boundary": "No qualified model or successful real-model browser conversation is claimed by shell publication."
+    },
+    {
+      "name": "TinyRustLM.MiRust.com",
+      "url": "https://tinyrustlm.mirust.com/",
+      "version": "1.8.1",
+      "role": "developer documentation and bounded evidence portal",
+      "claim_boundary": "Documentation and historical records are not runtime or release evidence for another phase."
+    },
+    {
+      "name": "MiniModel.org",
+      "url": "https://minimodel.org/",
+      "version": "1.1.1",
+      "role": "metadata-only SLM2 catalog and acquisition documentation",
+      "claim_boundary": "No composition or peer is available until exact current evidence enters the empty feeds."
+    },
+    {
+      "name": "MiniModel.MiRust.com",
+      "url": "https://minimodel.mirust.com/",
+      "version": "1.1.0",
+      "role": "MiniModel developer documentation",
+      "claim_boundary": "Documentation does not host model bytes, peers, conversion, or inference."
+    }
+  ],
+  "redirect_only": [
+    { "name": "Runtime.MiRust.com", "target": "https://tinyrustlm.mirust.com/developer-portal/", "compatibility_authority": false },
+    { "name": "LMComposer.com", "target": "https://tinyrustlm.com/", "compatibility_authority": false },
+    { "name": "SLMComposer.com", "target": "https://tinyrustlm.com/", "compatibility_authority": false }
+  ],
+  "source_policy": {
+    "current_tinyrustlm_authority_count": 1,
+    "duplicate_writable_checkout_disposition": "block-build-test-release-deploy",
+    "consolidation": "semantic-test-driven-only",
+    "stale_tree_union_merge": false,
+    "historical_implementations": "git-history-only",
+    "runtime_compatibility_paths": 0
   },
   "boundaries": [
-    "root-discovery surface only",
-    "no model execution",
-    "no model hosting",
-    "no model training or merging",
-    "no root files grant write authority",
-    "no certification or ranking claims",
-    "no implementation source in public root-discovery package"
+    "no model bytes or prompts",
+    "no model execution or remote inference",
+    "no implementation source or build artifacts",
+    "no private UAI, workspace, credentials, tools, tests, staging, or receipts",
+    "no legacy reader, validator, schema, alias, migration, fallback, or hidden retry",
+    "no certification or campaign progress from discovery metadata"
   ]
 }
