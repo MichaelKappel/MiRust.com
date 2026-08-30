@@ -1,5 +1,5 @@
 profile: mirust.workspace.current.v1
-updated_utc: 2026-08-28T00:00:00Z
+updated_utc: 2026-08-30T00:03:00Z
 site: MiRust.com
 status: ecosystem-governance-authority
 current_authority:
@@ -17,3 +17,14 @@ prelaunch_redundancy:
   policy: Important memory may also be kept in current .uai, wiki, public-safe source notes, and approved private stores for resilience.
   invariant: Every maintained copy stays current, secret-safe, provenance-labeled, and noncontradictory.
   conflict_rule: Surface and reconcile conflicts; do not silently choose one contradictory copy.
+
+bounded_root_discovery_release:
+  release_id: mirust.com@2.6.0
+  scope: Eleven named root-discovery files only; the live WordPress application remains outside this repository and was not changed.
+  source_commit: 252039cc642fc2db9641baa5d2223217cecf147d
+  source_tree: 3cf159f0588ce9c4bafaca52dd8ac77bfd5048e1
+  publisher_commit: 4b1cc2d39e914f93a1d52573a5468ea19b9103e7
+  manifest_sha256: e76ecddc240df8b29d80d7f00fb12d97c7d4cbf5b3c134e7114577db523c144a
+  receipt: deploy/receipts/site-deployment-mirust-root-discovery-2.6.0-20260829-v1.json
+  terminal_status: published-and-readback-verified
+  evidence_boundary: This release proves current root-discovery bytes and registered retirements only; it proves no model, inference, peer, portable-memory, or campaign result.

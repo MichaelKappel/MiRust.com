@@ -1,12 +1,34 @@
-profile: mirust.short-term-memory.v1
-updated_utc: 2026-08-09T22:06:41Z
-current_state:
-  - MiRust.com is the talisman source for the Rust-family sites: Runtime.MiRust.com, TinyRustLM.MiRust.com, SLMComposer.com, and MiniModel.org.
-  - File Handoff setup is initialized with Content and Improvement buckets, disposition ledger, and placeholder-only active intake.
-  - Client sites reference MiRust.com one-way; local site ownership, deployment, review, and runtime controls remain local.
+profile: mirust.short-term-memory.current.v1
+updated_utc: 2026-08-30T00:03:00Z
 
-credit_window_handoff_2026_08_09:
-  current_truth: Commit b3dcbb90337d3e19a3da09c9b575aa5cc963c09b is pushed for the bounded metadata, discovery, governance, and talisman source. This repository is not a complete WordPress production snapshot.
-  publication_status: No MiRust.com publication was attempted or claimed. Live HTTPS reachability is observation only.
-  blocker: A complete authoritative production closure, deploy transport, release ledger, full test gate, and public readback contract are unavailable in this repository.
-  next_action: Build a clean current release source rather than adding legacy support or patching an incomplete snapshot; synchronize all affected documentation and marketing before publication.
+current_state:
+  - MiRust.com is the bounded public root-discovery and governance-orientation surface for the current Rust-family lanes.
+  - The repository is not a complete WordPress source tree; the 2.6.0 release changed only eleven registered root-discovery files.
+  - The single TinyRustLM source-authority prohibition is current and identical in every maintained ecosystem taboo.uai.
+  - Historical implementations and superseded metadata contracts remain only in Git history and immutable evidence, never in current executable or acceptance paths.
+
+root_discovery_release_2_6_0:
+  operation_id: mirust-root-discovery-2.6.0-20260829-v1
+  source_commit: 252039cc642fc2db9641baa5d2223217cecf147d
+  source_tree: 3cf159f0588ce9c4bafaca52dd8ac77bfd5048e1
+  registration_commit: 22523af5fe34c23872ec72ed2fa6f271b7dbab09
+  publisher_commit: 4b1cc2d39e914f93a1d52573a5468ea19b9103e7
+  manifest_sha256: e76ecddc240df8b29d80d7f00fb12d97c7d4cbf5b3c134e7114577db523c144a
+  receipt_path: deploy/receipts/site-deployment-mirust-root-discovery-2.6.0-20260829-v1.json
+  receipt_sha256: ed4c2ba6817a8ca78c544bd5b474c97b8fcb537fafa8e4c4a1aa052ebe5f79fa
+  terminal_status: published-and-readback-verified
+  published_files: 10
+  already_current_files: 1
+  retired_files: 12
+  independent_https: 11 exact files, 12 retired paths, 4 protected paths, and 4 route smokes passed
+
+security_and_history:
+  - The publicly readable workspace.uai and four obsolete root-discovery ZIPs were retired by exact authenticated identity.
+  - Seven superseded duplicate AI-ready contracts were deleted from current source and retired from public routing.
+  - Private .uai and agent-file-handoff remain denied; workspace.uai is now absent from the public web root.
+  - The release marker was published last and the sole owner invocation terminated successfully; never invoke this operation again.
+
+remaining_boundary:
+  - The live WordPress application source, database, plugins, and theme are outside this bounded repository and were not modified or certified.
+  - No qualified model, real-model browser inference, outside peer, live portable-memory round, or campaign count is proven by this release.
+  - Any later root-discovery change requires a wholly new content commit, operation identity, manifest, remote before-state, terminal receipt, and independent HTTPS readback.

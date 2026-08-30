@@ -1,0 +1,162 @@
+{
+    "schema":  "uaix.site_create_only_deployment_receipt.v1",
+    "operation_id":  "mirust-root-discovery-2.6.0-20260829-v1",
+    "site":  "MiRust.com",
+    "origin":  "https://mirust.com",
+    "version":  "2.6.0",
+    "source_commit":  "252039cc642fc2db9641baa5d2223217cecf147d",
+    "source_tree":  "3cf159f0588ce9c4bafaca52dd8ac77bfd5048e1",
+    "publisher_commit":  "4b1cc2d39e914f93a1d52573a5468ea19b9103e7",
+    "manifest_sha256":  "e76ecddc240df8b29d80d7f00fb12d97c7d4cbf5b3c134e7114577db523c144a",
+    "operation_nonce":  "9c497594822a",
+    "started_utc":  "2026-08-29T23:55:20.2864184Z",
+    "completed_utc":  "2026-08-30T00:00:42.1445759Z",
+    "status":  "published-and-readback-verified",
+    "file_count":  11,
+    "total_bytes":  17218,
+    "published_count":  10,
+    "already_current_count":  1,
+    "files":  [
+                  {
+                      "path":  "llms.txt",
+                      "status":  "published",
+                      "bytes":  1958,
+                      "sha256":  "3d0edb1f12b72958640250483af90893b852697e78a329e319a06c564fb4be71"
+                  },
+                  {
+                      "path":  "llms-full.txt",
+                      "status":  "published",
+                      "bytes":  3806,
+                      "sha256":  "59e9d782b99d8766be1c0f8732048993bec5fc7a56f47e5e8fa0df28c53d20b2"
+                  },
+                  {
+                      "path":  "robots.txt",
+                      "status":  "published",
+                      "bytes":  394,
+                      "sha256":  "e36869bb272824d3554e374a71af54eec539626abe309948f5a547661e08a754"
+                  },
+                  {
+                      "path":  "mirust-public-sitemap.xml",
+                      "status":  "published",
+                      "bytes":  1458,
+                      "sha256":  "4dfa77b692cc3c4d6c7c10d5baa673c1967c0f626a0055209487dda8abd8a32b"
+                  },
+                  {
+                      "path":  "README-MIRUST-ROOT-DISCOVERY.txt",
+                      "status":  "published",
+                      "bytes":  906,
+                      "sha256":  "0a14e3389a20b52eb6e2afcceb58cd826ade3dd14611aaf0cf95e991c92d83d8"
+                  },
+                  {
+                      "path":  ".well-known/security.txt",
+                      "status":  "already-current",
+                      "bytes":  113,
+                      "sha256":  "db3029d15deb26062dbf00e2aa966032e0cf31951222fe7c49e19847295fcb9f"
+                  },
+                  {
+                      "path":  ".well-known/uaix-talisman.txt",
+                      "status":  "published",
+                      "bytes":  1984,
+                      "sha256":  "1633f60a822e8214601e7b7085ff31e0b19dffc9116b9a791f17d6e75e23e37d"
+                  },
+                  {
+                      "path":  ".well-known/ai-ready-route-inventory.json",
+                      "status":  "published",
+                      "bytes":  2252,
+                      "sha256":  "e0a13d4c4606af93b5b69331f9c56646979ec3bfd52a4618ec47b57edc4ce2ea"
+                  },
+                  {
+                      "path":  ".well-known/mirust-site.json",
+                      "status":  "published",
+                      "bytes":  2545,
+                      "sha256":  "425d4c83452cb176d9335023ac05e5fcae0f70148172ae30ba5c5138cbbe3538"
+                  },
+                  {
+                      "path":  ".well-known/site-release-history.json",
+                      "status":  "published",
+                      "bytes":  1448,
+                      "sha256":  "f0c0adf9bb50a61dc23be48ab54d0ebe1dcc35f5fdefdecf6147018c84c00d7c"
+                  },
+                  {
+                      "path":  ".well-known/site-release.json",
+                      "status":  "published",
+                      "bytes":  354,
+                      "sha256":  "f41820343758a03f581c8881801cd729e02825962e924b6524af9407b3590aa6"
+                  }
+              ],
+    "retired_count":  12,
+    "retired_paths":  [
+                          {
+                              "path":  "workspace.uai",
+                              "status":  "retired",
+                              "bytes":  2106,
+                              "sha256":  "5bb9bc2a4bbce0eda3169d005ca50eedb5ffa6097ff971bf921283ab1e523ecc"
+                          },
+                          {
+                              "path":  "mirust-root-discovery-2.0.1.zip",
+                              "status":  "retired",
+                              "bytes":  16928,
+                              "sha256":  "14799d02605c203c444abb57fe6bb269bc886ee59d37808dceb7abb96d1f67f1"
+                          },
+                          {
+                              "path":  "mirust-root-discovery-2.2.0.zip",
+                              "status":  "retired",
+                              "bytes":  11203,
+                              "sha256":  "529c5499f3cf7ff969cacc2441c31d3058d6957aa71e2bdfee5528ddeab62884"
+                          },
+                          {
+                              "path":  "mirust-root-discovery-2.2.1.zip",
+                              "status":  "retired",
+                              "bytes":  10879,
+                              "sha256":  "1ca2fc14505eaf1ecf78ec3c599acd535c64ab18a9bd52638519abeb096aa49e"
+                          },
+                          {
+                              "path":  "mirust-root-discovery-2.3.0.zip",
+                              "status":  "retired",
+                              "bytes":  13780,
+                              "sha256":  "da6aadd4d718282647dec8698a455837a7069ee94e7d132fcb692d14860eab9e"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready-manifest.json",
+                              "status":  "retired",
+                              "bytes":  7883,
+                              "sha256":  "913c3842a75b33791bbd8b618b61163e65bdb07467a2a4c4e2e55d99f770d8e9"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready-manifest.schema.json",
+                              "status":  "retired",
+                              "bytes":  303,
+                              "sha256":  "68e3737f78c723bd4fb7f9311aa9eab1ad6041ebf22730793f83fbca38144487"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready-maturity.json",
+                              "status":  "retired",
+                              "bytes":  600,
+                              "sha256":  "c7ba42c16de8b4b9928685a081c63bbc7829c022c50d9ba4cb95f5f921c448a1"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready-readiness-result.schema.json",
+                              "status":  "retired",
+                              "bytes":  351,
+                              "sha256":  "4ddd2337b16cd9b734adee5b3d38e56b39d4595f51e04aa34328ff94b42c4451"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready-readiness.json",
+                              "status":  "retired",
+                              "bytes":  590,
+                              "sha256":  "f13290f63f4c6a70542f2f2645a3a312b55e296dfbcc6a34add9cbf807b15166"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready-requirements.json",
+                              "status":  "retired",
+                              "bytes":  407,
+                              "sha256":  "9d0aab4c6e002b9fdc3437f73ec1f8d063bcefd2d6781b029b33c6aacf3238a8"
+                          },
+                          {
+                              "path":  ".well-known/ai-ready.json",
+                              "status":  "retired",
+                              "bytes":  7883,
+                              "sha256":  "913c3842a75b33791bbd8b618b61163e65bdb07467a2a4c4e2e55d99f770d8e9"
+                          }
+                      ]
+}
