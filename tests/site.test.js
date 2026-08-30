@@ -91,6 +91,7 @@ test("source authority policy fails closed", () => {
     "Every workspace registry, read order, build recipe, CI workflow, release command, and deployment manifest must name only the canonical authority",
     "Do not pull both trees forward, merge stale branches wholesale",
     "Historical source belongs only in Git history",
+    "Any committed change to a declared public artifact invalidates deployed-current status",
   ]) {
     assert.ok(taboo.includes(marker), marker);
   }
