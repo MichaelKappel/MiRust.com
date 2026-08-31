@@ -7,8 +7,8 @@ authority.
 
 ## Release Identity
 
-- Release: `mirust.com@2.6.0`
-- Release date: `2026-08-29`
+- Release: `mirust.com@2.6.1`
+- Release date: `2026-08-31`
 - Public scope: named root-discovery files only
 - WordPress scope: unchanged and outside this bounded source package
 - Historical scope: Git history only; no executable compatibility path
@@ -32,10 +32,10 @@ evidence unless its current canonical URL is separately checked and cited.
 ## Current Public Lanes
 
 - https://tinyrustlm.com/ is the browser-local clean-slate SLM2 application
-  shell. Its public release identity is `0.3.0`. The shell does not by itself
+  shell. Its public release identity is `0.4.1`. The shell does not by itself
   prove a qualified model or a successful real-model browser conversation.
 - https://tinyrustlm.mirust.com/ is the TinyRustLM developer documentation and
-  bounded evidence portal. Its current public release identity is `1.8.1`.
+  bounded evidence portal. Its current public release identity is `1.8.2`.
   Historical documents are records, not current runtime authority.
 - https://minimodel.org/ is the metadata-only SLM2 catalog and acquisition
   documentation site. Its current public release identity is `1.1.1`; its

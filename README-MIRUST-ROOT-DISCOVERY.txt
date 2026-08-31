@@ -1,13 +1,13 @@
-MiRust.com Root Discovery 2.6.0
+MiRust.com Root Discovery 2.6.1
 
 This repository is the bounded source for named public root-discovery files.
 It is not a complete WordPress source tree and must never be uploaded as one.
 
 Publication is allowed only from the immutable Git content commit named by
-deploy/site-deployment-manifest.v1.json, through tools/deploy-site.ps1. The
+deploy/site-deployment-manifest-2.6.1.v1.json, through tools/deploy-site.ps1. The
 publisher authenticates every remote before-state, changes only manifest
-members, retires only exact registered files, publishes the release marker
-last, and writes one append-only terminal receipt.
+member, confirms every registered historical retirement remains absent,
+publishes the release marker last, and writes one append-only terminal receipt.
 
 Private .uai files, workspace.uai, deployment tools, tests, receipts, staging,
 credentials, and historical ZIP packages are not public release members.

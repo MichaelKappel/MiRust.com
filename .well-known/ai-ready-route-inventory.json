@@ -1,9 +1,9 @@
 {
   "schema": "mirust.root_route_inventory.v1",
   "site": "https://mirust.com",
-  "version": "2.6.0",
-  "release_id": "mirust.com@2.6.0",
-  "updated_utc": "2026-08-29T00:00:00Z",
+  "version": "2.6.1",
+  "release_id": "mirust.com@2.6.1",
+  "updated_utc": "2026-08-31T00:00:00Z",
   "routes": [
     { "path": "/", "purpose": "WordPress site root; application content is outside this bounded package" },
     { "path": "/llms.txt", "purpose": "Compact current route and boundary map" },
@@ -17,10 +17,10 @@
     { "path": "/.well-known/site-release.json", "purpose": "Current bounded publication marker" }
   ],
   "current_lanes": [
-    { "name": "TinyRustLM.com", "url": "https://tinyrustlm.com/", "version": "0.3.0", "role": "browser-local clean-slate SLM2 application shell" },
-    { "name": "TinyRustLM.MiRust.com", "url": "https://tinyrustlm.mirust.com/", "version": "1.8.1", "role": "developer documentation and bounded evidence portal" },
-    { "name": "MiniModel.org", "url": "https://minimodel.org/", "version": "1.1.1", "role": "metadata-only SLM2 catalog and acquisition documentation" },
-    { "name": "MiniModel.MiRust.com", "url": "https://minimodel.mirust.com/", "version": "1.1.0", "role": "MiniModel developer documentation" }
+    { "name": "TinyRustLM.com", "url": "https://tinyrustlm.com/", "version": "0.4.1", "release_status": "published", "role": "browser-local clean-slate SLM2 application shell" },
+    { "name": "TinyRustLM.MiRust.com", "url": "https://tinyrustlm.mirust.com/", "version": "1.8.2", "release_status": "published", "role": "developer documentation and bounded evidence portal" },
+    { "name": "MiniModel.org", "url": "https://minimodel.org/", "version": "1.1.1", "release_status": "published", "role": "metadata-only SLM2 catalog and acquisition documentation" },
+    { "name": "MiniModel.MiRust.com", "url": "https://minimodel.mirust.com/", "version": "1.1.0", "release_status": "published", "role": "MiniModel developer documentation" }
   ],
   "redirect_only": [
     { "name": "Runtime.MiRust.com", "target": "https://tinyrustlm.mirust.com/developer-portal/" },

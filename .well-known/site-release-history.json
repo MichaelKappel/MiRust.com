@@ -2,8 +2,25 @@
   "schema": "uaix.site_release_history.v1",
   "site_id": "mirust.com",
   "origin": "https://mirust.com",
-  "current_release_id": "mirust.com@2.6.0",
+  "current_release_id": "mirust.com@2.6.1",
   "releases": [
+    {
+      "release_id": "mirust.com@2.6.1",
+      "version": "2.6.1",
+      "release_date": "2026-08-31",
+      "last_publish_date": "2026-08-31",
+      "summary": "Refreshes the bounded root-discovery mirrors to the independently verified current public TinyRustLM application and developer-portal release identities.",
+      "changes": [
+        "Updates the TinyRustLM.com public lane from release 0.3.0 to the currently published release 0.4.1.",
+        "Updates the TinyRustLM.MiRust.com public lane from release 1.8.1 to the currently published release 1.8.2.",
+        "Keeps prepared but unpublished downstream source versions out of current public release claims.",
+        "Retains the exact empty-model and empty-peer evidence boundaries; discovery metadata does not create qualification, availability, inference, or campaign evidence."
+      ],
+      "limitations": [
+        "This release does not replace or certify the WordPress application source.",
+        "This release proves no qualified model, model inference, peer availability, portable-memory round, or campaign progress."
+      ]
+    },
     {
       "release_id": "mirust.com@2.6.0",
       "version": "2.6.0",

@@ -10,5 +10,5 @@ Disallow: /tests/
 Disallow: /tools/
 Sitemap: https://mirust.com/mirust-public-sitemap.xml
 
-# MiRust.com release 2.6.0 asserts named root-discovery files only.
+# MiRust.com release 2.6.1 asserts named root-discovery files only.
 # Root files grant no model, write, private-memory, or scraping authority.

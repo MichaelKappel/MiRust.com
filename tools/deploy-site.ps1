@@ -1,5 +1,5 @@
 param(
-    [string]$ManifestPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "deploy\site-deployment-manifest.v1.json"),
+    [string]$ManifestPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "deploy\site-deployment-manifest-2.6.1.v1.json"),
     [string]$FileZillaProfilePath = (Join-Path $env:APPDATA "FileZilla\sitemanager.xml"),
     [switch]$Publish
 )
@@ -410,12 +410,12 @@ $origin = $null
 if (-not [Uri]::TryCreate([string]$manifest.origin, [UriKind]::Absolute, [ref]$origin) -or
     $origin.Scheme -cne "https" -or $origin.AbsolutePath -cne "/" -or
     $manifest.schema -cne "uaix.static_site_create_only_deployment_manifest.v1" -or
-    $manifest.operation_id -cne "mirust-root-discovery-2.6.0-20260829-v1" -or
+    $manifest.operation_id -cne "mirust-root-discovery-2.6.1-20260831-v1" -or
     $manifest.site -cne "MiRust.com" -or
     $origin.Host -cne "mirust.com" -or
     $manifest.transport_profile -cne "MiRust.com" -or
-    $manifest.version -cne "2.6.0" -or
-    $manifest.release_date -cne "2026-08-29" -or
+    $manifest.version -cne "2.6.1" -or
+    $manifest.release_date -cne "2026-08-31" -or
     $manifest.source_commit -notmatch "^[0-9a-f]{40}$" -or
     $manifest.source_tree -notmatch "^[0-9a-f]{40}$" -or
     @($manifest.files).Count -ne 11 -or
@@ -480,10 +480,7 @@ $retiredSeen = @{}
 foreach ($retired in @($manifest.retired_paths)) {
     $relative = Assert-RelativePath -Path ([string]$retired.path)
     if ($seen.ContainsKey($relative) -or $retiredSeen.ContainsKey($relative) -or
-        [string]$retired.expected_before.status -cne "present" -or
-        [int64]$retired.expected_before.bytes -lt 1 -or
-        [int64]$retired.expected_before.bytes -gt 16777216 -or
-        [string]$retired.expected_before.sha256 -notmatch "^[0-9a-f]{64}$") {
+        [string]$retired.expected_before.status -cne "absent") {
         throw "Deployment manifest contains an invalid retired identity."
     }
     $retiredSeen[$relative] = $true
@@ -529,10 +526,7 @@ try {
     foreach ($retired in @($manifest.retired_paths)) {
         $currentPath = [string]$retired.path
         $actual = Get-RemoteIdentity -RemotePath $currentPath
-        $expected = $retired.expected_before
-        if ($actual.status -cne "present" -or
-            [int64]$actual.bytes -ne [int64]$expected.bytes -or
-            [string]$actual.sha256 -cne [string]$expected.sha256) {
+        if ($actual.status -cne "absent") {
             throw "Authenticated retired before-state drifted for $currentPath"
         }
     }
@@ -545,17 +539,14 @@ try {
 
     foreach ($retired in @($manifest.retired_paths)) {
         $currentPath = [string]$retired.path
-        Remove-RemoteFileIfPresent -RemotePath $currentPath
         if ((Get-RemoteIdentity -RemotePath $currentPath).status -cne "absent") {
-            throw "Registered retirement did not commit for $currentPath"
+            throw "Historical retirement stopped being absent for $currentPath"
         }
         $retiredResults += [ordered]@{
             path = $currentPath
-            status = "retired"
-            bytes = [int64]$retired.expected_before.bytes
-            sha256 = [string]$retired.expected_before.sha256
+            status = "already-retired"
         }
-        Write-Host "RETIRE $currentPath"
+        Write-Host "RETIRED $currentPath"
     }
 
     $marker = @($manifest.files)[-1]
@@ -648,7 +639,8 @@ try {
         published_count = @($results | Where-Object { $_.status -eq "published" }).Count
         already_current_count = @($results | Where-Object { $_.status -eq "already-current" }).Count
         files = $results
-        retired_count = $retiredResults.Count
+        retired_count = 0
+        already_retired_count = $retiredResults.Count
         retired_paths = $retiredResults
     }
     Write-CreateOnlyReceipt -Receipt $receipt -Path $receiptPath
@@ -673,7 +665,8 @@ catch {
         current_path = $currentPath
         completed_file_count = $results.Count
         files = $results
-        completed_retired_count = $retiredResults.Count
+        completed_retired_count = 0
+        confirmed_historical_retirement_count = $retiredResults.Count
         retired_paths = $retiredResults
     }
     Write-CreateOnlyReceipt -Receipt $failure -Path $receiptPath

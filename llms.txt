@@ -4,7 +4,7 @@ MiRust.com is the public root-discovery and governance-orientation surface for
 the Rust-oriented project family. It is not an implementation host, model
 host, inference service, release proxy, or source-code authority.
 
-Current root-discovery release: 2.6.0, dated 2026-08-29.
+Current root-discovery release: 2.6.1, dated 2026-08-31.
 
 Verified public root files:
 - https://mirust.com/
@@ -19,8 +19,8 @@ Verified public root files:
 - https://mirust.com/.well-known/site-release.json
 
 Current public lanes:
-- https://tinyrustlm.com/ - browser-local clean-slate SLM2 application shell, public release 0.3.0.
-- https://tinyrustlm.mirust.com/ - TinyRustLM developer documentation and bounded evidence portal, public release 1.8.1.
+- https://tinyrustlm.com/ - browser-local clean-slate SLM2 application shell, public release 0.4.1.
+- https://tinyrustlm.mirust.com/ - TinyRustLM developer documentation and bounded evidence portal, public release 1.8.2.
 - https://minimodel.org/ - metadata-only SLM2 catalog and acquisition documentation, public release 1.1.1.
 - https://minimodel.mirust.com/ - MiniModel developer documentation, public release 1.1.0.
 

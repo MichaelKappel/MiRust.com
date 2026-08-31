@@ -1,8 +1,8 @@
 UAIX Talisman Public Export
 site: MiRust.com
 role: root-discovery-governance-orientation
-release: mirust.com@2.6.0
-updated_utc: 2026-08-29T00:00:00Z
+release: mirust.com@2.6.1
+updated_utc: 2026-08-31T00:00:00Z
 
 Purpose
 MiRust.com maps current public Rust-family lanes and their evidence boundaries.
@@ -10,8 +10,8 @@ This public export is not private UAI memory, certification, authentication,
 runtime authority, source authority, or permission to write.
 
 Current Public Lanes
-- TinyRustLM.com: browser-local clean-slate SLM2 application shell, release 0.3.0.
-- TinyRustLM.MiRust.com: developer documentation and evidence portal, release 1.8.1.
+- TinyRustLM.com: browser-local clean-slate SLM2 application shell, release 0.4.1.
+- TinyRustLM.MiRust.com: developer documentation and evidence portal, release 1.8.2.
 - MiniModel.org: metadata-only SLM2 catalog and acquisition documentation, release 1.1.1.
 - MiniModel.MiRust.com: MiniModel developer documentation, release 1.1.0.
 

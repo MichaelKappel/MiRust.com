@@ -1,23 +1,25 @@
 {
   "schema": "mirust.site_manifest.v1",
   "site": "https://mirust.com",
-  "version": "2.6.0",
-  "release_id": "mirust.com@2.6.0",
-  "release_date": "2026-08-29",
+  "version": "2.6.1",
+  "release_id": "mirust.com@2.6.1",
+  "release_date": "2026-08-31",
   "scope": "bounded-root-discovery-only",
   "wordpress_source_included": false,
   "current_lanes": [
     {
       "name": "TinyRustLM.com",
       "url": "https://tinyrustlm.com/",
-      "version": "0.3.0",
+      "version": "0.4.1",
+      "release_status": "published",
       "role": "browser-local clean-slate SLM2 application shell",
       "claim_boundary": "No qualified model or successful real-model browser conversation is claimed by shell publication."
     },
     {
       "name": "TinyRustLM.MiRust.com",
       "url": "https://tinyrustlm.mirust.com/",
-      "version": "1.8.1",
+      "version": "1.8.2",
+      "release_status": "published",
       "role": "developer documentation and bounded evidence portal",
       "claim_boundary": "Documentation and historical records are not runtime or release evidence for another phase."
     },
@@ -25,6 +27,7 @@
       "name": "MiniModel.org",
       "url": "https://minimodel.org/",
       "version": "1.1.1",
+      "release_status": "published",
       "role": "metadata-only SLM2 catalog and acquisition documentation",
       "claim_boundary": "No composition or peer is available until exact current evidence enters the empty feeds."
     },
@@ -32,6 +35,7 @@
       "name": "MiniModel.MiRust.com",
       "url": "https://minimodel.mirust.com/",
       "version": "1.1.0",
+      "release_status": "published",
       "role": "MiniModel developer documentation",
       "claim_boundary": "Documentation does not host model bytes, peers, conversion, or inference."
     }
