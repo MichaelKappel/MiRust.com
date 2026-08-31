@@ -1,0 +1,233 @@
+{
+  "schema": "uaix.static_site_create_only_deployment_manifest.v1",
+  "operation_id": "mirust-root-discovery-2.6.1-20260831-v1",
+  "site": "MiRust.com",
+  "origin": "https://mirust.com",
+  "version": "2.6.1",
+  "release_date": "2026-08-31",
+  "source_commit": "2c5763655e1ad23f812efe40365cae62a74562dd",
+  "source_tree": "c97d3f010dd26be7de48feef72d21ee101a3a208",
+  "transport_profile": "MiRust.com",
+  "receipt_path": "deploy/receipts/site-deployment-mirust-root-discovery-2.6.1-20260831-v1.json",
+  "files": [
+    {
+      "path": "llms.txt",
+      "bytes": 1958,
+      "sha256": "b05972990e38c9fe82a57478dafb094901b6245bd8f50c7476cbddaede1fab0f",
+      "https_readback_path": "/llms.txt",
+      "expected_before": {
+        "status": "present",
+        "bytes": 1958,
+        "sha256": "3d0edb1f12b72958640250483af90893b852697e78a329e319a06c564fb4be71"
+      }
+    },
+    {
+      "path": "llms-full.txt",
+      "bytes": 3806,
+      "sha256": "d6671c89a0775e6a4304a032c8e4d7c1c4c607d29dabfa1fa61e536ba6ea31cd",
+      "https_readback_path": "/llms-full.txt",
+      "expected_before": {
+        "status": "present",
+        "bytes": 3806,
+        "sha256": "59e9d782b99d8766be1c0f8732048993bec5fc7a56f47e5e8fa0df28c53d20b2"
+      }
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 394,
+      "sha256": "5e657b7712c744b779dd7c6f540f64064dbe6d97daa78796386b6a19d5e14268",
+      "https_readback_path": "/robots.txt",
+      "expected_before": {
+        "status": "present",
+        "bytes": 394,
+        "sha256": "e36869bb272824d3554e374a71af54eec539626abe309948f5a547661e08a754"
+      }
+    },
+    {
+      "path": "mirust-public-sitemap.xml",
+      "bytes": 1458,
+      "sha256": "37e5feaf6fe9cdecbab16314681751337e8ad89e9dd42fa0218643cb309b442a",
+      "https_readback_path": "/mirust-public-sitemap.xml",
+      "expected_before": {
+        "status": "present",
+        "bytes": 1458,
+        "sha256": "4dfa77b692cc3c4d6c7c10d5baa673c1967c0f626a0055209487dda8abd8a32b"
+      }
+    },
+    {
+      "path": "README-MIRUST-ROOT-DISCOVERY.txt",
+      "bytes": 938,
+      "sha256": "b53782dafed04f94294186ce4436d14e9247ad6547635249c40347c79fd25ea9",
+      "https_readback_path": "/README-MIRUST-ROOT-DISCOVERY.txt",
+      "expected_before": {
+        "status": "present",
+        "bytes": 906,
+        "sha256": "0a14e3389a20b52eb6e2afcceb58cd826ade3dd14611aaf0cf95e991c92d83d8"
+      }
+    },
+    {
+      "path": ".well-known/security.txt",
+      "bytes": 113,
+      "sha256": "db3029d15deb26062dbf00e2aa966032e0cf31951222fe7c49e19847295fcb9f",
+      "https_readback_path": "/.well-known/security.txt",
+      "expected_before": {
+        "status": "present",
+        "bytes": 113,
+        "sha256": "db3029d15deb26062dbf00e2aa966032e0cf31951222fe7c49e19847295fcb9f"
+      }
+    },
+    {
+      "path": ".well-known/uaix-talisman.txt",
+      "bytes": 1984,
+      "sha256": "9540700685f1dfbe7400f01fc41f5026d7ff8ab85920e186168fc14381c20f1b",
+      "https_readback_path": "/.well-known/uaix-talisman.txt",
+      "expected_before": {
+        "status": "present",
+        "bytes": 1984,
+        "sha256": "1633f60a822e8214601e7b7085ff31e0b19dffc9116b9a791f17d6e75e23e37d"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-route-inventory.json",
+      "bytes": 2376,
+      "sha256": "a4dfba93e01913698b6862f87954ba3901afc3d9f272cd988002e45441ea2dce",
+      "https_readback_path": "/.well-known/ai-ready-route-inventory.json",
+      "expected_before": {
+        "status": "present",
+        "bytes": 2252,
+        "sha256": "e0a13d4c4606af93b5b69331f9c56646979ec3bfd52a4618ec47b57edc4ce2ea"
+      }
+    },
+    {
+      "path": ".well-known/mirust-site.json",
+      "bytes": 2693,
+      "sha256": "7d9821e3f9079f094df05637bd442c668dcb3fc82b1c1cc90b09783893b9c281",
+      "https_readback_path": "/.well-known/mirust-site.json",
+      "expected_before": {
+        "status": "present",
+        "bytes": 2545,
+        "sha256": "425d4c83452cb176d9335023ac05e5fcae0f70148172ae30ba5c5138cbbe3538"
+      }
+    },
+    {
+      "path": ".well-known/site-release-history.json",
+      "bytes": 2563,
+      "sha256": "423a6d276347b32ed25ecbba17e3d5688883943678d00e94924e4faa761c0f4f",
+      "https_readback_path": "/.well-known/site-release-history.json",
+      "expected_before": {
+        "status": "present",
+        "bytes": 1448,
+        "sha256": "f0c0adf9bb50a61dc23be48ab54d0ebe1dcc35f5fdefdecf6147018c84c00d7c"
+      }
+    },
+    {
+      "path": ".well-known/site-release.json",
+      "bytes": 354,
+      "sha256": "63de954814a9952cca87ebb1af3df783ee07f1c3fb2139252c2562ba1c8daba1",
+      "https_readback_path": "/.well-known/site-release.json",
+      "expected_before": {
+        "status": "present",
+        "bytes": 354,
+        "sha256": "f41820343758a03f581c8881801cd729e02825962e924b6524af9407b3590aa6"
+      }
+    }
+  ],
+  "retired_paths": [
+    {
+      "path": "workspace.uai",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": "mirust-root-discovery-2.0.1.zip",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": "mirust-root-discovery-2.2.0.zip",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": "mirust-root-discovery-2.2.1.zip",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": "mirust-root-discovery-2.3.0.zip",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-manifest.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-manifest.schema.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-maturity.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-readiness-result.schema.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-readiness.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready-requirements.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    },
+    {
+      "path": ".well-known/ai-ready.json",
+      "expected_before": {
+        "status": "absent"
+      }
+    }
+  ],
+  "route_smokes": [
+    {
+      "path": "/",
+      "contains": "MiRust"
+    },
+    {
+      "path": "/llms.txt",
+      "contains": "Current root-discovery release: 2.6.1"
+    },
+    {
+      "path": "/.well-known/mirust-site.json",
+      "contains": "mirust.com@2.6.1"
+    },
+    {
+      "path": "/.well-known/site-release.json",
+      "contains": "mirust.com@2.6.1"
+    }
+  ],
+  "prohibited_public_paths": [
+    "/.uai/",
+    "/workspace.uai",
+    "/agent-file-handoff/",
+    "/.git/"
+  ]
+}
