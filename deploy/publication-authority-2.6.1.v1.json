@@ -1,0 +1,80 @@
+{
+  "schema": "mirust.static_site_publication_authority.v1",
+  "site": "MiRust.com",
+  "origin": "https://mirust.com",
+  "public_host": "mirust.com",
+  "candidate": {
+    "version": "2.6.1",
+    "release_id": "mirust.com@2.6.1",
+    "operation_id": "mirust-root-discovery-2.6.1-20260831-v1",
+    "content_commit": "2c5763655e1ad23f812efe40365cae62a74562dd",
+    "content_tree": "c97d3f010dd26be7de48feef72d21ee101a3a208",
+    "manifest_commit": "cbefce77356a59de044f42a98dc76a2f5f557173",
+    "manifest_tree": "80599516d4400d1834ea50648cf1fed10ad0cda4",
+    "manifest_path": "deploy/site-deployment-manifest-2.6.1.v1.json",
+    "manifest_bytes": 6848,
+    "manifest_sha256": "eeda38875c31130dd05f91b3974fd4a0326d3be5636954bb3fda131ea58f6e01"
+  },
+  "publisher": {
+    "branch": "master",
+    "remote_name": "origin",
+    "remote_url": "https://github.com/MichaelKappel/MiRust.com.git"
+  },
+  "source_verifier": {
+    "repository": "TinyRustLM.com",
+    "relative_repository_path": "../TinyRustLM.com",
+    "branch": "codex/model-acquisition-v2",
+    "remote_name": "origin",
+    "remote_url": "https://github.com/MichaelKappel/TinyRustLM.com.git",
+    "commit": "4f3b36fbba69d9c875a50069e866fcf673158378",
+    "tree": "59789a32cb4f6f9e9c81f1311039f5005fb154fb",
+    "path": "tinyrustlm/tools/verify-single-source-authority.js",
+    "blob": "db3ad2184e58cbb4584eb75c8d0062494ebe06d8",
+    "bytes": 144650,
+    "sha256": "d8005c826d3e477787a79ad4f25fbd3cf25bd37cb810b3b2bf708667e2290d47"
+  },
+  "transport": {
+    "protocol": "ftps-explicit",
+    "profile_name": "MiRust.com",
+    "host": "ftp.mirust.com",
+    "port": 21,
+    "root_sentinel_path": ".well-known/security.txt",
+    "root_sentinel_bytes": 113,
+    "root_sentinel_sha256": "db3029d15deb26062dbf00e2aa966032e0cf31951222fe7c49e19847295fcb9f"
+  },
+  "predecessor": {
+    "version": "2.6.0",
+    "release_id": "mirust.com@2.6.0",
+    "manifest_path": "deploy/site-deployment-manifest.v1.json",
+    "manifest_bytes": 7948,
+    "manifest_sha256": "e76ecddc240df8b29d80d7f00fb12d97c7d4cbf5b3c134e7114577db523c144a",
+    "receipt_path": "deploy/receipts/site-deployment-mirust-root-discovery-2.6.0-20260829-v1.json",
+    "receipt_bytes": 8285,
+    "receipt_sha256": "ed4c2ba6817a8ca78c544bd5b474c97b8fcb537fafa8e4c4a1aa052ebe5f79fa",
+    "documents": [
+      {
+        "role": "release-marker",
+        "path": "/.well-known/site-release.json",
+        "bytes": 354,
+        "sha256": "f41820343758a03f581c8881801cd729e02825962e924b6524af9407b3590aa6",
+        "schema": "uaix.site_release.v1"
+      },
+      {
+        "role": "release-history",
+        "path": "/.well-known/site-release-history.json",
+        "bytes": 1448,
+        "sha256": "f0c0adf9bb50a61dc23be48ab54d0ebe1dcc35f5fdefdecf6147018c84c00d7c",
+        "schema": "uaix.site_release_history.v1"
+      },
+      {
+        "role": "site-manifest",
+        "path": "/.well-known/mirust-site.json",
+        "bytes": 2545,
+        "sha256": "425d4c83452cb176d9335023ac05e5fcae0f70148172ae30ba5c5138cbbe3538",
+        "schema": "mirust.site_manifest.v1"
+      }
+    ]
+  },
+  "contains_credentials": false,
+  "contains_private_paths": false
+}

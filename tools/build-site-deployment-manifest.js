@@ -16,6 +16,13 @@ const manifestRelativePath = "deploy/site-deployment-manifest-2.6.1.v1.json";
 const outputPath = path.join(repositoryRoot, ...manifestRelativePath.split("/"));
 const stagingRoot = path.join(repositoryRoot, "deploy", "staging", version);
 const stagingParent = path.dirname(stagingRoot);
+const publicationAuthorityPath = path.join(
+  repositoryRoot,
+  "deploy",
+  "publication-authority-2.6.1.v1.json",
+);
+const publicationAuthoritySha256 =
+  "0a20b3073d6bb0977589d3469892370369fb8b8579ed6bd76f4ed74b18e4fb97";
 
 const priorManifest = Object.freeze({
   path: "deploy/site-deployment-manifest.v1.json",
@@ -26,6 +33,136 @@ const priorReceipt = Object.freeze({
   path: "deploy/receipts/site-deployment-mirust-root-discovery-2.6.0-20260829-v1.json",
   sha256: "ed4c2ba6817a8ca78c544bd5b474c97b8fcb537fafa8e4c4a1aa052ebe5f79fa",
 });
+
+function gitIn(repository, args) {
+  return execFileSync("git", ["-C", repository, ...args], {
+    encoding: "utf8",
+    maxBuffer: 1024 * 1024,
+    windowsHide: true,
+  }).trim();
+}
+
+function readPublicationAuthority() {
+  const bytes = fs.readFileSync(publicationAuthorityPath);
+  if (sha256(bytes) !== publicationAuthoritySha256) {
+    throw new Error("Publication authority byte identity is invalid");
+  }
+  let authority;
+  try {
+    authority = JSON.parse(bytes.toString("utf8"));
+  } catch {
+    throw new Error("Publication authority is malformed");
+  }
+  const verifier = authority?.source_verifier;
+  if (
+    verifier?.repository !== "TinyRustLM.com" ||
+    verifier.relative_repository_path !== "../TinyRustLM.com" ||
+    verifier.branch !== "codex/model-acquisition-v2" ||
+    verifier.remote_name !== "origin" ||
+    verifier.remote_url !== "https://github.com/MichaelKappel/TinyRustLM.com.git" ||
+    !/^[0-9a-f]{40}$/.test(verifier.commit || "") ||
+    !/^[0-9a-f]{40}$/.test(verifier.tree || "") ||
+    verifier.path !== "tinyrustlm/tools/verify-single-source-authority.js" ||
+    !/^[0-9a-f]{40}$/.test(verifier.blob || "") ||
+    !Number.isSafeInteger(verifier.bytes) ||
+    verifier.bytes < 1 ||
+    !/^[0-9a-f]{64}$/.test(verifier.sha256 || "")
+  ) {
+    throw new Error("Publication authority has an invalid source-verifier pin");
+  }
+  return authority;
+}
+
+function assertDirectNonSymlinkPath(target, label) {
+  const resolved = path.resolve(target);
+  const parsed = path.parse(resolved);
+  let current = parsed.root;
+  for (const segment of resolved.slice(parsed.root.length).split(path.sep).filter(Boolean)) {
+    current = path.join(current, segment);
+    const stat = fs.lstatSync(current);
+    if (stat.isSymbolicLink()) {
+      throw new Error(`${label} contains a symbolic link or junction`);
+    }
+  }
+  return resolved;
+}
+
+function invokeCanonicalSourceAuthorityGate(authority) {
+  const pin = authority.source_verifier;
+  const sourceRepository = assertDirectNonSymlinkPath(
+    path.resolve(repositoryRoot, pin.relative_repository_path),
+    "Canonical source-authority repository",
+  );
+  const expectedRepository = path.resolve(repositoryRoot, "..", "TinyRustLM.com");
+  const sourceAuthorityVerifier = assertDirectNonSymlinkPath(
+    path.resolve(sourceRepository, ...pin.path.split("/")),
+    "Canonical source-authority verifier",
+  );
+  if (sourceRepository.toLowerCase() !== expectedRepository.toLowerCase()) {
+    throw new Error("Canonical source-authority repository path is invalid");
+  }
+
+  const directRemoteLine = gitIn(sourceRepository, [
+    "ls-remote",
+    "--refs",
+    pin.remote_name,
+    `refs/heads/${pin.branch}`,
+  ]);
+  const directRemote = directRemoteLine.split(/\s+/)[0];
+  if (
+    gitIn(sourceRepository, ["symbolic-ref", "--quiet", "--short", "HEAD"]) !== pin.branch ||
+    gitIn(sourceRepository, ["remote", "get-url", pin.remote_name]) !== pin.remote_url ||
+    gitIn(sourceRepository, ["rev-parse", "HEAD"]) !== pin.commit ||
+    gitIn(sourceRepository, ["rev-parse", "HEAD^{tree}"]) !== pin.tree ||
+    gitIn(sourceRepository, ["rev-parse", `HEAD:${pin.path}`]) !== pin.blob ||
+    gitIn(sourceRepository, ["rev-parse", "@{upstream}"]) !== pin.commit ||
+    directRemote !== pin.commit ||
+    gitIn(sourceRepository, ["status", "--porcelain", "--untracked-files=all"]) !== ""
+  ) {
+    throw new Error("Canonical source-authority verifier is not pinned, clean, and remote-exact");
+  }
+
+  const descriptor = fs.openSync(sourceAuthorityVerifier, "r");
+  let stdout;
+  try {
+    const stat = fs.fstatSync(descriptor);
+    const bytes = fs.readFileSync(descriptor);
+    if (!stat.isFile() || stat.size !== pin.bytes || bytes.length !== pin.bytes || sha256(bytes) !== pin.sha256) {
+      throw new Error("Pinned source-authority verifier byte identity drifted");
+    }
+    stdout = execFileSync(
+      process.execPath,
+      [sourceAuthorityVerifier, "--require-clean", "--require-remote-exact"],
+      {
+        cwd: path.dirname(path.dirname(path.dirname(sourceAuthorityVerifier))),
+        encoding: "utf8",
+        maxBuffer: 1024 * 1024,
+        windowsHide: true,
+      },
+    );
+  } catch {
+    throw new Error("Canonical source-authority verification failed");
+  } finally {
+    fs.closeSync(descriptor);
+  }
+
+  let result;
+  try {
+    result = JSON.parse(stdout);
+  } catch {
+    throw new Error("Canonical source-authority verifier returned invalid evidence");
+  }
+  if (
+    result?.verdict !== "pass" ||
+    result.canonicalLayoutAvailable !== true ||
+    result.localScanPerformed !== true
+  ) {
+    throw new Error("Canonical source-authority verification did not pass");
+  }
+}
+
+const publicationAuthority = readPublicationAuthority();
+invokeCanonicalSourceAuthorityGate(publicationAuthority);
 
 if (!/^[0-9a-f]{40}$/.test(contentCommit || "") || process.argv.length !== 3) {
   throw new Error(
@@ -340,5 +477,5 @@ const manifest = {
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 process.stdout.write(
-  `${outputPath}\n${files.length} files\n${retiredPaths.length} enforced historical retirements\n${stagingRoot}\n`,
+  `${manifestRelativePath}\n${files.length} files\n${retiredPaths.length} enforced historical retirements\ndeploy/staging/${version}\n`,
 );
