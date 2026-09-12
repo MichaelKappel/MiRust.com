@@ -1,5 +1,11 @@
 profile: mirust.short-term-memory.current.v1
-updated_utc: 2026-08-30T00:03:00Z
+updated_utc: 2026-09-12T17:00:00Z
+
+ecosystem_cleanup_2026_09_12:
+  - Reviewed and retained the pending publisher corrections for exact LIST collection identity, first-file empty journals, and predecessor byte-array preservation.
+  - All 14 repository tests passed, including 44 PowerShell custody checks with injected upload and promotion failures, rollback, and marker-last completion.
+  - Tests used simulated transport and removed their local custody fixtures; no credentials, publication, or live WordPress changes were involved.
+  - The historical release identities below remain evidence of their recorded operations, not a claim that this tooling checkpoint was deployed.
 
 current_state:
   - MiRust.com is the bounded public root-discovery and governance-orientation surface for the current Rust-family lanes.

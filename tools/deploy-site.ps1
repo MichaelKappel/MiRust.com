@@ -636,7 +636,7 @@ function Get-RemoteDirectoryEntries {
         }
         if (-not $entries.Add($line)) { throw "Remote directory inventory contains a duplicate entry." }
     }
-    return $entries
+    return ,$entries
 }
 
 function Get-RemoteDirectoryState {
@@ -1153,7 +1153,7 @@ function Publish-ManifestFile {
         [Parameter(Mandatory)][pscustomobject]$File,
         [Parameter(Mandatory)]$Snapshot,
         [Parameter(Mandatory)][string]$Nonce,
-        [Parameter(Mandatory)][Collections.ArrayList]$Journal
+        [Parameter(Mandatory)][AllowEmptyCollection()][Collections.ArrayList]$Journal
     )
 
     $relative = [string]$File.path
@@ -1176,7 +1176,7 @@ function Publish-ManifestFile {
         BeforeStatus = [string]$before.status
         BeforeBytes = if ($before.status -ceq "present") { [int64]$before.bytes } else { [int64]0 }
         BeforeSha256 = if ($before.status -ceq "present") { [string]$before.sha256 } else { $null }
-        BeforeContent = if ($before.status -ceq "present") { [byte[]]$observedBefore.content } else { $null }
+        BeforeContent = if ($before.status -ceq "present") { ,([byte[]]$observedBefore.content) } else { $null }
         Auxiliary = $auxiliary
         Mutated = $false
         State = "observed"

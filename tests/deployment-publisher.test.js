@@ -3,10 +3,10 @@
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
-const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 const test = require("node:test");
+const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const authorityPath = path.join(root, "deploy", "publication-authority-2.6.1.v1.json");
@@ -55,7 +55,7 @@ test("PowerShell publisher rejects hostile target and predecessor states", () =>
     { cwd: root, encoding: "utf8" },
   );
   assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
-  assert.match(result.stdout, /RESULT 31\/31 deployment-custody checks passed/);
+  assert.match(result.stdout, /RESULT 44\/44 deployment-custody checks passed/);
 });
 
 test("publisher holds exact custody from source gate through marker proof", () => {
@@ -106,48 +106,38 @@ test("publisher holds exact custody from source gate through marker proof", () =
 });
 
 test("manifest builder rejects a revision mismatch before executing the verifier", () => {
-  const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "mirust-builder-gate-"));
-  try {
-    const preload = path.join(temporary, "preload.cjs");
-    const log = path.join(temporary, "spawn.json");
-    fs.writeFileSync(preload, `
-      const fs = require("node:fs");
-      const child = require("node:child_process");
-      child.execFileSync = (file, args) => {
-        let calls = [];
-        try { calls = JSON.parse(fs.readFileSync(process.env.MIRUST_SPAWN_LOG, "utf8")); } catch {}
-        calls.push({ file, args });
-        fs.writeFileSync(process.env.MIRUST_SPAWN_LOG, JSON.stringify(calls));
-        if (String(file).toLowerCase().includes("git")) {
-          if (args.includes("ls-remote")) return "0000000000000000000000000000000000000000\\trefs/heads/codex/model-acquisition-v2\\n";
-          if (args.includes("symbolic-ref")) return "hostile-branch\\n";
-          return "hostile-value\\n";
-        }
-        throw new Error("verifier must not execute");
-      };
-    `);
-    const result = spawnSync(
-      process.execPath,
-      [path.join(root, "tools", "build-site-deployment-manifest.js"), "poisoned-later-input"],
-      {
-        cwd: root,
-        encoding: "utf8",
-        env: {
-          ...process.env,
-          MIRUST_SPAWN_LOG: log,
-          NODE_OPTIONS: `--require=${preload}`,
-        },
-      },
-    );
-    assert.notEqual(result.status, 0);
-    const calls = JSON.parse(fs.readFileSync(log, "utf8"));
-    assert.ok(calls.length >= 2);
-    assert.ok(calls.every((call) => String(call.file).toLowerCase().includes("git")));
-    assert.ok(calls.some((call) => call.args.includes("ls-remote")));
-    assert.ok(calls.some((call) => call.args.includes("symbolic-ref")));
-  } finally {
-    fs.rmSync(temporary, { recursive: true, force: true });
-  }
+  const builderPath = path.join(root, "tools", "build-site-deployment-manifest.js");
+  const calls = [];
+  const fixtureFs = {
+    readFileSync(file) {
+      assert.equal(file, authorityPath, "only local authority bytes may be read");
+      return fs.readFileSync(file);
+    },
+    lstatSync() {
+      return { isSymbolicLink: () => false };
+    },
+  };
+  const fixtureChild = {
+    execFileSync(file, args) {
+      calls.push({ file, args });
+      assert.equal(file, "git", "verifier must not execute");
+      if (args.includes("ls-remote")) return "0000000000000000000000000000000000000000\trefs/heads/codex/model-acquisition-v2\n";
+      if (args.includes("symbolic-ref")) return "hostile-branch\n";
+      throw new Error("unexpected Git query");
+    },
+  };
+  assert.throws(() => vm.runInNewContext(fs.readFileSync(builderPath, "utf8"), {
+    __dirname: path.dirname(builderPath),
+    process: { argv: [process.execPath, builderPath, "poisoned-later-input"] },
+    require(name) {
+      if (name === "node:fs") return fixtureFs;
+      if (name === "node:child_process") return fixtureChild;
+      return require(name);
+    },
+  }, { filename: builderPath, timeout: 5000 }), /not pinned, clean, and remote-exact/);
+  assert.equal(calls.length, 2);
+  assert.ok(calls.some((call) => call.args.includes("ls-remote")));
+  assert.ok(calls.some((call) => call.args.includes("symbolic-ref")));
 });
 
 test("manifest builder pins authority and verifier bytes before any output write", () => {

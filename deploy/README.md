@@ -65,3 +65,16 @@ before-state. Only after snapshot cleanup and publication-lease release does
 the owner commit one append-only terminal receipt. A lease loser cannot write
 that receipt. A terminal operation is never retried or repaired; any later
 action requires a new identity and manifest.
+
+## Local Tests
+
+Run `npm test` for every repository test, or `npm run test:deployment-custody`
+for the publication-safety gate. The latter also runs
+`powershell.exe -NoProfile -ExecutionPolicy Bypass -File tests/deployment-custody.test.ps1`.
+These tests cover directory-list identity, first-file journaling, injected
+upload/promotion failures, exact rollback, and marker-last completion with
+mocked transport. They read no credentials, contact no network, and do not
+inspect sibling repositories or external evidence. Bounded local custody
+fixtures are removed after use; no deployment candidate is staged.
+Passing local tests does not establish source authority, remote equality,
+target custody, publication, or live readback.

@@ -8,6 +8,7 @@ $deployRoot = Assert-DirectNonReparseAncestry `
     -Path (Join-Path $repositoryRoot "deploy") -Label "Test deployment root" -Container
 $stagingParent = [IO.Path]::GetFullPath((Join-Path $deployRoot "staging"))
 $createdStagingParent = -not (Test-Path -LiteralPath $stagingParent)
+try {
 if ($createdStagingParent) {
     [IO.Directory]::CreateDirectory($stagingParent) | Out-Null
 }
@@ -120,12 +121,45 @@ Assert-Throws -Action {
 
 $script:remoteWritesAdmitted = $false
 Assert-Throws -Action { Assert-RemoteMutationAdmitted } -Pattern "before target custody" -Name "pre-admission mutation"
+
+function New-FtpRequest {
+    param($RemotePath, $Method)
+    if (-not $script:listFixtureEnabled -or $Method -cne [Net.WebRequestMethods+Ftp]::ListDirectory) {
+        throw "Test attempted unexpected network access."
+    }
+    $response = [pscustomobject]@{ Content = [Text.UTF8Encoding]::new($false).GetBytes($script:listFixtureText) }
+    $response | Add-Member ScriptMethod GetResponseStream { return [IO.MemoryStream]::new($this.Content) }
+    $response | Add-Member ScriptMethod Dispose { }
+    $request = [pscustomobject]@{ Response = $response }
+    $request | Add-Member ScriptMethod GetResponse { return $this.Response }
+    return $request
+}
+$script:listFixtureEnabled = $true
+foreach ($listing in @(
+    [pscustomobject]@{ Text = ""; Count = 0; Name = "empty" },
+    [pscustomobject]@{ Text = "candidate.json`r`n"; Count = 1; Name = "single-entry" },
+    [pscustomobject]@{ Text = "candidate.json`r`nother.txt`r`n"; Count = 2; Name = "multiple-entry" }
+)) {
+    $script:listFixtureText = $listing.Text
+    $entries = Get-RemoteDirectoryEntries -RemotePath ""
+    if ($entries -isnot [Collections.Generic.HashSet[string]] -or $entries.Count -ne $listing.Count) {
+        throw "The $($listing.Name) LIST result did not preserve its set identity."
+    }
+    if ($entries.Contains("CANDIDATE.JSON") -or $entries.Contains("didate.json") -or
+        ($listing.Count -gt 0 -and -not $entries.Contains("candidate.json"))) {
+        throw "Remote LIST membership must use exact ordinal names."
+    }
+    Pass -Name "$($listing.Name) remote LIST set"
+}
+$script:listFixtureEnabled = $false
+
 $leasePath = Join-Path $repositoryRoot "deploy\staging\.mirust-publication.lock"
 if (Test-Path -LiteralPath $leasePath) { throw "Publication lease fixture path is unexpectedly occupied." }
 $lease = New-ExclusivePublicationLease `
     -OperationId "fixture-publication" `
     -PublisherCommit ("a" * 40) `
     -SnapshotSealSha256 ("b" * 64)
+try {
 Assert-OwnedPublicationLease -Lease $lease
 Pass -Name "exclusive publication lease ownership"
 Assert-Throws -Action {
@@ -139,8 +173,11 @@ $script:remoteMutationObserved = $false
 Assert-RemoteMutationAdmitted
 if (-not $script:remoteMutationObserved) { throw "Admitted mutation did not become observable." }
 Pass -Name "owned publication mutation observation"
-Remove-ExactOwnedPublicationLease -Lease $lease
-$script:remoteWritesAdmitted = $false
+}
+finally {
+    Remove-ExactOwnedPublicationLease -Lease $lease
+    $script:remoteWritesAdmitted = $false
+}
 if (Test-Path -LiteralPath $leasePath) { throw "Publication lease was not removed on release." }
 Pass -Name "publication lease release"
 
@@ -316,6 +353,16 @@ finally { $cached.Dispose() }
 $script:remoteFixture = @{}
 $script:removedFixturePaths = @()
 $script:movedFixturePaths = @()
+$script:fixtureMutations = @()
+$script:publicationFault = $null
+function Assert-RemoteParentDirectories {
+    param([string]$RemotePath)
+    Assert-RelativePath -Path $RemotePath | Out-Null
+}
+function Get-SealedSnapshotFileBytes {
+    param($Snapshot, $File)
+    return ,$script:publicationBytes
+}
 function Get-RemoteIdentity {
     param([Parameter(Mandatory)][string]$RemotePath)
     if (-not $script:remoteFixture.ContainsKey($RemotePath)) {
@@ -332,6 +379,11 @@ function Send-RemoteBytesOnce {
     $script:remoteFixture[$RemotePath] = [pscustomobject]@{
         status = "present"; bytes = $Bytes.Length; sha256 = $Sha256; content = [byte[]]$Bytes
     }
+    $script:fixtureMutations += "upload:$RemotePath"
+    if ($script:publicationFault -ceq "upload-after") {
+        $script:publicationFault = $null
+        throw "Injected publication fault: upload-after"
+    }
 }
 function Move-RemoteFileExact {
     param([string]$RemotePath, [string]$NewLeafName, [int64]$Bytes, [string]$Sha256)
@@ -340,9 +392,18 @@ function Move-RemoteFileExact {
     $parts = Get-RemoteParentAndLeaf -RemotePath $RemotePath
     $destination = if ($parts.Parent) { "$($parts.Parent)/$NewLeafName" } else { $NewLeafName }
     if ((Get-RemoteIdentity -RemotePath $destination).status -cne "absent") { throw "fixture destination occupied" }
+    if ($script:publicationFault -ceq "promote-before") {
+        $script:publicationFault = $null
+        throw "Injected publication fault: promote-before"
+    }
     $script:remoteFixture.Remove($RemotePath)
     $script:remoteFixture[$destination] = $source
     $script:movedFixturePaths += $RemotePath
+    $script:fixtureMutations += "promote:$destination"
+    if ($script:publicationFault -ceq "promote-after") {
+        $script:publicationFault = $null
+        throw "Injected publication fault: promote-after"
+    }
 }
 function Remove-RemoteFileExact {
     param([string]$RemotePath, [int64]$Bytes, [string]$Sha256)
@@ -350,6 +411,7 @@ function Remove-RemoteFileExact {
     if (-not (Test-ExactIdentity -Identity $source -Bytes $Bytes -Sha256 $Sha256)) { throw "fixture delete mismatch" }
     $script:remoteFixture.Remove($RemotePath)
     $script:removedFixturePaths += $RemotePath
+    $script:fixtureMutations += "delete:$RemotePath"
 }
 function New-FixtureJournalEntry {
     param([string]$Path, [string]$Nonce, [byte[]]$BeforeContent, [byte[]]$DesiredContent)
@@ -371,6 +433,86 @@ $oldBytes = [Text.UTF8Encoding]::new($false).GetBytes("old-state")
 $newBytes = [Text.UTF8Encoding]::new($false).GetBytes("new-state")
 $oldSha = Get-BytesSha256 -Bytes $oldBytes
 $newSha = Get-BytesSha256 -Bytes $newBytes
+$script:publicationBytes = $newBytes
+foreach ($beforeStatus in @("present", "absent", "unchanged")) {
+    $script:remoteFixture = @{}
+    $script:fixtureMutations = @()
+    [byte[]]$beforeContent = if ($beforeStatus -ceq "unchanged") { $newBytes } else { $oldBytes }
+    $beforeHash = Get-BytesSha256 -Bytes $beforeContent
+    $file = [pscustomobject]@{
+        path = "fixture.txt"; bytes = $newBytes.Length; sha256 = $newSha
+        expected_before = [pscustomobject]@{
+            status = if ($beforeStatus -ceq "absent") { "absent" } else { "present" }
+            bytes = $beforeContent.Length; sha256 = $beforeHash
+        }
+    }
+    if ($beforeStatus -cne "absent") {
+        $script:remoteFixture[$file.path] = [pscustomobject]@{
+            status = "present"; bytes = $beforeContent.Length; sha256 = $beforeHash; content = $beforeContent
+        }
+    }
+    $firstJournal = [Collections.ArrayList]::new()
+    $result = Publish-ManifestFile -File $file -Snapshot ([pscustomobject]@{}) -Nonce "first" -Journal $firstJournal
+    $expectedStatus = if ($beforeStatus -ceq "unchanged") { "already-current" } else { "published" }
+    if ($result.status -cne $expectedStatus -or $firstJournal.Count -ne 1 -or
+        -not (Test-ExactIdentity -Identity (Get-RemoteIdentity $file.path) -Bytes $newBytes.Length -Sha256 $newSha)) {
+        throw "First-file publication did not retain the caller's journal and exact target bytes."
+    }
+    if ($beforeStatus -ceq "unchanged" -and $script:fixtureMutations.Count -ne 0) {
+        throw "Unchanged publication mutated remote state."
+    }
+    if ($beforeStatus -cne "absent" -and
+        ($firstJournal[0].BeforeContent -isnot [byte[]] -or
+         (Get-BytesSha256 -Bytes $firstJournal[0].BeforeContent) -cne $beforeHash)) {
+        throw "Publication journal did not preserve predecessor byte-array identity."
+    }
+    Complete-ReleaseTransaction -Journal $firstJournal
+    Pass -Name "first publication with $beforeStatus predecessor and empty journal"
+}
+
+foreach ($fault in @("upload-after", "promote-before", "promote-after")) {
+    $script:remoteFixture = @{}
+    $file = [pscustomobject]@{
+        path = "fixture.txt"; bytes = $newBytes.Length; sha256 = $newSha
+        expected_before = [pscustomobject]@{ status = "present"; bytes = $oldBytes.Length; sha256 = $oldSha }
+    }
+    $script:remoteFixture[$file.path] = [pscustomobject]@{
+        status = "present"; bytes = $oldBytes.Length; sha256 = $oldSha; content = $oldBytes
+    }
+    $failedJournal = [Collections.ArrayList]::new()
+    $script:publicationFault = $fault
+    Assert-Throws -Action {
+        Publish-ManifestFile -File $file -Snapshot ([pscustomobject]@{}) -Nonce "fault" -Journal $failedJournal | Out-Null
+    } -Pattern "Injected publication fault: $fault" -Name "$fault publication failure"
+    if ($failedJournal.Count -ne 1) { throw "Failed publication lost its journal entry." }
+    Invoke-ReleaseRollback -Journal $failedJournal
+    Assert-ManifestRemoteBeforeState -Manifest ([pscustomobject]@{ files = @($file); retired_paths = @() }) -Nonce "fault"
+    Pass -Name "$fault exact rollback and auxiliary cleanup"
+}
+
+$script:remoteFixture = @{}
+$script:fixtureMutations = @()
+$publicationJournal = [Collections.ArrayList]::new()
+foreach ($relative in @("fixture.txt", ".well-known/site-release.json")) {
+    $file = [pscustomobject]@{
+        path = $relative; bytes = $newBytes.Length; sha256 = $newSha
+        expected_before = [pscustomobject]@{ status = "present"; bytes = $oldBytes.Length; sha256 = $oldSha }
+    }
+    $script:remoteFixture[$relative] = [pscustomobject]@{
+        status = "present"; bytes = $oldBytes.Length; sha256 = $oldSha; content = $oldBytes
+    }
+    Publish-ManifestFile -File $file -Snapshot ([pscustomobject]@{}) -Nonce "marker" -Journal $publicationJournal | Out-Null
+}
+$mutationCount = $script:fixtureMutations.Count
+Complete-ReleaseTransaction -Journal $publicationJournal
+if ($publicationJournal.Count -ne 2 -or $mutationCount -ne 6 -or
+    $script:fixtureMutations.Count -ne $mutationCount -or
+    $script:fixtureMutations[-1] -cne "promote:.well-known/site-release.json") {
+    throw "Marker promotion was not the final mutation followed by read-only completion."
+}
+Pass -Name "marker-last publication and read-only completion"
+
+$script:remoteFixture = @{}
 $entry = New-FixtureJournalEntry -Path "llms.txt" -Nonce "fixture" `
     -BeforeContent $oldBytes -DesiredContent $newBytes
 $script:remoteFixture["llms.txt"] = [pscustomobject]@{
@@ -454,11 +596,17 @@ Assert-Throws -Action {
     Assert-ManifestRemoteBeforeState -Manifest $miniManifest -Nonce "release"
 } -Pattern "authenticated retirement" -Name "retired path rollback drift"
 
-if ($script:passed -ne 31) { throw "Expected 31 custody checks; observed $script:passed." }
-if ($createdStagingParent) {
-    if (@(Get-ChildItem -LiteralPath $stagingParent -Force).Count -ne 0) {
-        throw "Test-created deployment staging parent is not empty."
-    }
-    [IO.Directory]::Delete($stagingParent)
+if ($script:passed -ne 44) { throw "Expected 44 custody checks; observed $script:passed." }
 }
-Write-Host "RESULT 31/31 deployment-custody checks passed"
+finally {
+    if ($createdStagingParent -and (Test-Path -LiteralPath $stagingParent)) {
+        $expectedParent = [IO.Path]::GetFullPath((Join-Path $deployRoot "staging"))
+        if ($stagingParent -cne $expectedParent) { throw "Test cleanup path escaped its deployment root." }
+        Assert-DirectNonReparseAncestry -Path $stagingParent -Label "Test cleanup parent" -Container | Out-Null
+        if (@(Get-ChildItem -LiteralPath $stagingParent -Force).Count -ne 0) {
+            throw "Test-created deployment staging parent is not empty."
+        }
+        [IO.Directory]::Delete($stagingParent)
+    }
+}
+Write-Host "RESULT 44/44 deployment-custody checks passed"
