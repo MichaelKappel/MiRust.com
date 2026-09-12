@@ -1,5 +1,5 @@
 profile: mirust.short-term-memory.current.v1
-updated_utc: 2026-09-12T17:00:00Z
+updated_utc: 2026-09-12T16:06:43Z
 
 ecosystem_cleanup_2026_09_12:
   - Reviewed and retained the pending publisher corrections for exact LIST collection identity, first-file empty journals, and predecessor byte-array preservation.
